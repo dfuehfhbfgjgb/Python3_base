@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>"十进制转十六进制"</title>
+</head>
+<body>
+    
+    <script>
+        var num=[];
+        var data=Number(prompt("请输入要转换的十进制整数"));
+        var decNum=data;
+        //decNum=(decNum/2).toFixed(0)-1;
+        while (decNum>0){
+            re=decNum%16;
+            if (re>9){
+                switch (re){
+                    case 10:
+                        num.unshift('a');
+                        break;
+                    case 11:
+                        num.unshift('b');
+                        break;
+                    case 12:
+                        num.unshift('c');
+                        break;
+                    case 13:
+                        num.unshift('d');
+                        break;
+                    case 14:
+                        num.unshift('e');
+                        break;
+                    case 15:
+                        num.unshift('f');
+                        break;
+                }
+            }else{
+                num.unshift(re);
+            }
+            
+            
+            if (re>7){
+                decNum=(decNum/16).toFixed(0)-1;
+            }else{
+                decNum=(decNum/16).toFixed(0); //decNum.toFixed(0) 去除小数部分
+            }            
+        }
+        num.unshift('0x');
+        var res=num.join('');
+        alert("十进制"+data+"转换为十六进制结果为："+res);
+    </script>
+
+</body>
+</html>

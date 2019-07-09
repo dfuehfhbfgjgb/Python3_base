@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM_Window</title>
+</head>
+<body>
+    <button id='btClose'>关闭当前窗口</button>
+    <button id="btOpen">打开TMOOC</button>
+    <script>
+    btClose.onclick=function(){
+        close();
+    } 
+    btOpen.onclick= function(){
+        //在新的窗口中打开
+        //open('http://tmooc.cn');
+        //在当前窗口打开
+        location.href='http://tmooc.cn';
+    }  
+        
+    </script>
+</body>
+</html>

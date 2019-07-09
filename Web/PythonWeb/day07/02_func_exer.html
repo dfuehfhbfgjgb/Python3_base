@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RecursiveAdd</title>
+    <script>
+        //累加
+        function recursiveAdd(start,end){
+            var sum=0;
+            if (start<end){
+                for (var i=start;i<end;i++){
+                    sum+=i;
+                }
+            /*}else if (end<start){
+                for (var i=start;i>end;i--){
+                    sum+=i;
+                }*/
+            }else{
+                sum="输入不合法，start大于或等于end";
+            }
+            //console.log("sum:",sum)
+
+            return sum;
+        }
+        //执行累加和
+        function doRecursiveAdd(){
+            //输入
+            var start = Number(prompt("请输入累加的第一个整数"));
+            var end = Number(prompt("请输入累加的第二个整数"));
+            //计算
+            var res=recursiveAdd(start,end);
+            //输出
+            //console.log("累加结果:",res);
+            //弹出
+            alert("累加和为"+res);
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick="doRecursiveAdd()">执行累加和</button>
+</body>
+</html>

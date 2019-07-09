@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM_Window</title>
+</head>
+<body>
+    <button id="bt">删除用户</button>
+    <script>
+    bt.onclick=function(){
+        var res=window.confirm('此操作不可恢复，你确认要删除吗？');
+        if (res){
+            alert('删除中。。。');
+        }else{
+            alert('取消删除');
+        }
+        
+    }
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<input id="inputEmail">
+	<button id="bt">拆分邮箱中各个部分</button>
+	<p id="pResult"></p>
+	<script>
+	//输出邮箱中的“用户名”部分，以及“域名”部分
+	bt.onclick = function(){
+		//获取用户输入的邮箱	
+		var email = inputEmail.value;
+		//获取邮箱中不同的部分
+		var i = email.indexOf('@'); //@的下标
+		//获取用户名部分：0~i
+		var uname = email.substring(0, i);
+		//获取域名部门：i+1~结尾
+		var hostname = email.substring(i+1);
+		pResult.innerHTML = '用户名：'+uname + '<br>域名：'+hostname;
+	}
+	</script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/common.js"></script>
+    <script>
+        function btnAjax(){
+            //1.创建xhr
+            var xhr = createXhr();
+            //2.创建请求
+            xhr.open("get","/02-server",true);
+            //3.设置回调函数
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState==4 && xhr.status==200){
+                    //接收响应数据 - xhr.responseText
+                    document.getElementById("show").innerHTML = xhr.responseText;
+                }
+            }
+            //4.发送请求
+            xhr.send(null);
+        }
+
+        function btnUname(){
+            //1.创建xhr
+            var xhr = createXhr();
+            //2.创建请求
+            var uname = document.getElementById("uname").value;
+            var url = "/02-server-param?uname="+uname;
+            xhr.open("get",url,true);
+            //3.设置回调函数(业务处理)
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState==4 && xhr.status==200){
+                    var res = xhr.responseText;
+                    var show = document.getElementById("show-name");
+                    show.innerHTML = res;
+                }
+            }
+            //4.发送请求
+            xhr.send(null);
+        }
+    </script>
+</head>
+<body>
+    <a href="/02-server">普通请求</a>
+    <button onclick="btnAjax()">AJAX请求</button>
+    <div id="show"></div>
+    <input type="text" id="uname">
+    <button onclick="btnUname()">显示名称</button>
+    <div id="show-name"></div>
+</body>
+</html>

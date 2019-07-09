@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	body,ul{
+		margin:0;
+		padding:0;
+		list-style:none;
+	}
+	#banner{
+		width:1000px;
+		height:400px;
+		margin:0 auto;
+		position:relative;
+	}
+	#banner img{
+		width:1000px;
+		height:400px;
+	}
+	#banner ul{
+		width:90px;
+		position:absolute;
+		bottom:20px;
+		/*根据参照物相应方向的值计算偏移距离*/
+		left:50%;
+		margin-left:-45px;
+		background:red;
+	}
+	#banner li{
+		float:left;
+		width:10px;
+		height:10px;
+		border-radius:50%;
+		margin-right:10px;
+		background:green;
+	}
+	/*:last-child子元素过滤选择器，匹配最后一个子元素
+	:first-child匹配第一个子元素
+	:nth-child(n)匹配第n个子元素
+	*/
+	#banner ul li:last-child{
+		margin:0;
+	}
+	#banner ul li:first-child{
+		background:orange;
+	}
+
+  </style>
+ </head>
+ <body>
+	<div id="banner">
+		<img src="index_banner2.jpg">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>	
+		</ul>
+	</div>
+ </body>
+</html>

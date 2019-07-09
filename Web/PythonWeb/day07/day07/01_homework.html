@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script>
+	//判断闰年
+	function isLeap(y){
+		return (y%400==0)||((y%4==0)&&(y%100!=0));
+	}
+	//单元测试
+	//var is = isLeap(3000);
+	//console.log(is);
+
+	//计算星期几
+	function getDay(y, m, d){
+		var sum = 0;//指定日期距离1990-1-1多少天
+		//计算完整年份中天数
+		for(var i=1990; i<y; i++){
+			sum += 365;
+			if( isLeap(i) ){
+				sum += 1;
+			}
+		}
+		//计算最后那个不完整年份中的天数
+		for(var i=1; i<m; i++){
+			switch(i){
+				case 1:
+				case 3:
+				case 5:
+				case 7:
+				case 8:
+				case 10:
+					sum += 31;
+					break;
+				case 4:
+				case 6:
+				case 9:
+				case 11:
+					sum += 30;
+					break;
+				case 2:
+					sum += 28;
+					if( isLeap(y) ){
+						sum += 1;
+					}
+			}
+		}
+		//计算最后的日
+		sum += d;
+		//对7取余，获得周几
+		var result = sum % 7;
+		switch(result){
+			case 0:
+				result = '星期日';
+				break;
+			case 1:
+				result = '星期一';
+				break;
+			case 2:
+				result = '星期二';
+				break;
+			case 3:
+				result = '星期三';
+				break;
+			case 4:
+				result = '星期四';
+				break;
+			case 5:
+				result = '星期五';
+				break;
+			case 6:
+				result = '星期六';
+		}
+		return result;  //返回不输出
+	}
+	//单元测试
+	//var result = getDay(2000, 1, 7);
+	//console.log(result);
+
+	//执行计算
+	function doGetDay(){
+		//输入
+		var y = Number(prompt('请输入年份：'));
+		var m = Number(prompt('请输入月份：'));
+		var d = Number(prompt('请输入日期：'));
+		//运算
+		var result = getDay(y, m, d);
+		//输出
+		alert(y+'-'+m+'-'+d+'是'+result);
+	}
+	</script>
+</head>
+<body>
+	<button onclick="doGetDay();">获取星期几</button>
+</body>
+</html>

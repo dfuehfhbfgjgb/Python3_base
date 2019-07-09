@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	div{
+		background:orange;
+		color:white;
+		font-size:20px;
+	}
+	a{
+		color:white;
+		text-decoration:none;
+	}
+	a:hover,span:hover{
+		background:green;
+	}
+	ul,ol{
+	/*取消默认的内边距*/
+		padding:0;
+	/*取消列表的项目符号*/
+		list-style:none;
+		background:pink;
+	}
+	ol{
+		/*设置隐藏*/
+		display:none;
+	}
+	ul>li:hover ol{
+		display:block;
+	}
+  </style>
+ </head>
+ <body>
+	<!--模拟横向导航栏-->
+	<div>
+		<span>淘宝</span>
+		<a href="">天猫</a>
+		<a href="">天猫</a>
+		<a href="">天猫</a>
+		<a href="">天猫</a>
+		<a href="">天猫</a>
+	</div>
+
+	<!--下拉菜单显示与隐藏-->
+	<ul>
+		<li>
+			北京
+			<ol>
+				<li>北京</li>
+				<li>上海</li>
+				<li>广州</li>
+				<li>深圳</li>
+			</ol>
+		</li>
+	</ul>
+ </body>
+</html>

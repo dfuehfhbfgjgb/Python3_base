@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Window</title>
+    <script src='index.js'></script>
+    <style>
+        div{
+            width:200px;
+            height:200px;
+            background:green;
+
+        }
+    </style>
+    <script>
+        //等待窗口加载完毕之后再去获取元素
+        window.onload = function (){
+            console.log('div');
+        }
+    </script>
+</head>
+<body>
+    <div onclick='alert("被单击")'></div>
+    <script>
+        var div = $('div') ;
+        div.onmouseover = function (){
+            console.log('鼠标移入')
+        }
+        div.onmouseout  = function (){
+            console.log('鼠标移出')
+        }
+        div.onmousemove = function (){
+            console.log('鼠标移动')
+        }
+        onkeydown = function (){
+            console.log("keydown")
+        }
+        onkeyup = function (){
+            console.log('keyup')
+        }
+        onkeypress = function (){
+            console.log('keypress')
+        }
+    </script>
+</body>
+</html>

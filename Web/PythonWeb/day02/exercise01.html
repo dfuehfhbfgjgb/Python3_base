@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<body>
+<!--<from action="login" method="post" enctype="">-->
+    <h1>增加管理员</h1>
+    <form action="" method="" enctype="">
+        <table>
+            <tr>
+                <td>姓名：</td>
+                <td><input type="text" name="uname" placeholder="" maxlength="10"></td>
+                <td>10个字符以内</td>
+
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="passwd" placeholder="" maxlength="10"></td>
+                <td>10个字符以内</td>
+            </tr>
+            <tr>
+                <td>性别：</td>
+                <td>
+                    <input id="male" type="radio" name="gender" value="male" checked>
+                    <label for="male">女士</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input id="female" type="radio" name="gender" value="female">
+                    <label for="female">男士</label>
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    角色 :
+                </td>
+                <td>
+                    <input type="checkbox" name="role" value="super" checked>超级管理员
+
+                </td>
+                <td rowspan="2">
+                    至少选择一个角色
+                </td>
+
+            </tr>
+            <tr>
+                <!--<td></td>-->
+                <td><input type="checkbox" name="role" value="bill">账单管理员</td>
+                <!--<td></td>-->
+
+            </tr>
+            <tr>
+                <td>头像 : </td>
+                <td colspan="2"><input type="file" name="uimg"></td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="保存">
+                    &nbsp;&nbsp;&nbsp;
+                    <input type="reset" value="重填">
+                </td>
+                <td></td>
+            </tr>
+
+        </table>
+
+
+
+    <!--<p>-->
+        <!--下拉菜单select :-->
+        <!--<select name="province">-->
+        <!--<option value="hebei">河北省</option>-->
+        <!--<option value="henan" selected>河南省</option>-->
+        <!--</select>-->
+    <!--</p>-->
+    <!--<p>-->
+        <!--多行文本域 : <textarea name="uinfo"></textarea>-->
+    <!--</p>-->
+    <!--<p>-->
+        <!-- 功能按钮-->
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <!--<input type="button">-->
+        <!--<button>表单内等价于submit</button>-->
+    <!--</p>-->
+    </form>
+
+
+<!--</from>-->
+
+</body>
+</html>

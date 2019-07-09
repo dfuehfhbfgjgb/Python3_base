@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This</title>
+    <script src="index.js"></script>
+    <style> 
+        div{
+            width:200px;
+            height:200px;
+            background:greenyellow;
+
+        }
+        
+    </style>
+    <script>
+        window.onload = function (){
+            //鼠标事件对象
+            $('div').onclick = function (e){
+                console.log(e);
+                //获取鼠标在元素坐标系中的位置
+                console.log(e.offsetX,e.offsetY);
+                //获取鼠标在屏幕坐标系中的位置
+                console.log(e.screenX,e.screenY);
+            };
+            //键盘事件对象
+            onkeydown = function (e){
+                // key:获取按键名称（字符）
+                // keyCode:获取按键编码
+                // keydown事件中,字母键一律返回大写字母的编码
+                // keypress事件中区分大小写字母的编码
+                // which：获取按键编码,
+                console.log("onkeydown:",e.key,e.keyCode,e.which);
+            };
+            //键盘字符键被按下时事件对象
+            onkeypress = function (e){
+                console.log("onkeypress:",e.key,e.keyCode,e.which);
+            };
+
+        };
+    </script>  
+</head>
+<body>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	
+	<h2><span id="sname">XXX</span>的成绩单</h2>
+	<hr>
+	<p>语文成绩：<span>0</span></p>
+	<p>数学成绩：<span>0</span></p>
+	<p>英语成绩：<span>0</span></p>
+	<hr>
+	<p>三科总分：<span id="ttl">0</span></p>
+	<p>三科平均分：<span id="avg">0</span></p>
+
+	<script>
+	/*
+	练习：创建一个对象表示一个学生，
+	包含成员属性：stuName、chinese、math、english
+	以及成员方法：getTotal()、getAverage()
+	输出该学生的总分和平均分
+	*/
+	var stu2 = {
+		stuName: '丁当',
+		chinese: 90,
+		math: 80,
+		english: 70,
+
+		getTotal: function(){
+			return this.chinese + this.math + this.english;
+		},
+		getAverage: function(){
+			return this.getTotal()/3;
+		}
+	};
+	//console.log(stu2);
+	//console.log(sname.innerHTML);获取元素的内容
+	//把span中的HTML内容修改为数据对象的属性
+	sname.innerHTML = stu2.stuName;
+	ttl.innerHTML = stu2.getTotal();
+	avg.innerHTML = stu2.getAverage();
+	</script>
+</body>
+</html>

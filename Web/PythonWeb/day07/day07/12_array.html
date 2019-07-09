@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<ul id="ulScore">
+	  <!--
+		<li>650</li>
+		<li>550</li>
+	  -->
+	</ul>
+
+	<script>
+	/*练习：创建数组，保存三个学生的高考成绩；
+	试着依次输出每个成绩；
+	依次给每个成绩+5分；
+	试着依次输出每个成绩；
+	在数组尾部添加两个新的成绩；
+	试着依次输出每个成绩*/
+	var scoreList = [600, 650, 700];
+	//console.log( scoreList[0] );
+	//console.log( scoreList[1] );
+	//console.log( scoreList[2] );
+	for(var i=0; i<scoreList.length; i++){
+		console.log( scoreList[i] );
+	}
+
+	scoreList[0] += 5;
+	scoreList[1] += 5;
+	scoreList[2] += 5;
+
+	for(var i=0; i<scoreList.length; i++){
+		console.log( scoreList[i] );
+	}
+
+	//增加新元素
+	scoreList[ scoreList.length ] = 500;
+	scoreList[ scoreList.length ] = 550;
+
+	for(var i=0; i<scoreList.length; i++){
+		console.log( scoreList[i] );
+	}
+
+	//把数组数据显示到页面中
+	var html = '';
+	for(var i=0; i<scoreList.length; i++){
+		html += '<li>'+scoreList[i]+'</li>';
+	}
+	//console.log(html);
+	ulScore.innerHTML = html;
+
+
+	//使用ES6提供的新方法遍历数组
+	scoreList.forEach( function(value, index){
+		console.log('处理数组中的一个元素');
+		console.log(value);
+		console.log(index);
+	} )
+	</script>
+</body>
+</html>

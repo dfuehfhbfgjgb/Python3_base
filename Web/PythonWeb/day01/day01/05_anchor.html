@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+	<!--用户可以点击超链接，跳转至其他的资源文件-->
+	<!--
+		href属性必填，用于指定链接地址,网络路径必须写协议
+		target属性选填，用于设置目标文件的打开方式，默认在当前窗口打开(_self)，可以设置新建窗口打开(_blank)
+	-->
+	<a href="04_img.html" target="_blank">图片文件</a>
+	<a href="www.baidu.com">百度1</a>
+	<a href="http://www.baidu.com">百度2</a>
+	<!--图片超链接-->
+	<a href="04_img.html">
+		<img src="happy.gif">
+	</a>
+	<!--href的特殊取值-->
+	<!--空表示刷新-->
+	<a href="">href=""</a>
+	<!--#表示锚点，链接至本页，不会造成刷新，修改URL-->
+	<a href="#">href="#"</a>
+	<!--javascript:void(0)阻止超链接默认的点击跳转功能，允许自定义点击事件-->
+	<a href="javascript:void(0)">javascript:void(0)</a>
+
+	<!--锚点链接的使用参见02_basic_tag.html-->
+
+
+
+
+
+
+
+
+
+
+ </body>
+</html>

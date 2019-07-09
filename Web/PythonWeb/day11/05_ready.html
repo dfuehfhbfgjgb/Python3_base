@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery_style</title>
+    <script src="../jquery-1.11.3.js"></script>
+    <!-- <script src="index.js"></script> -->
+    <script>
+        /*
+        window.onload = function (){
+            alert("1");
+        };
+        window.onload = function (){
+            alert("2");
+        };
+        if (window.onload){
+            var fn = window.onload
+            fn()
+        };
+        window.onload = function (){
+            alert("3");
+        }
+    
+        
+
+        console.log(window);*/
+        $(document).ready(function (){
+            //alert("1");
+        })
+        $().ready(function (){
+            //alert("2");
+
+        })
+        $(function (){
+            //alert("3");
+            $("div").on("click",function(){
+                alert("div被点击")
+            })
+            .bind("mouseover",function(){
+                console.log("鼠标移入");
+            })
+            .mouseout(function (){
+                console.log("鼠标移出");
+            })
+        })
+        $(function (){
+            $("li").click(function(e){
+                //$("h1").html(this.innerHTML);//原生方法取li元素值
+                $("h1").html($(this).html()).css('color','pink');//jquery方法取li元素值
+                console.log(e);
+            })
+        
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <li>老左</li>
+        <li>老杜</li>
+        <li>老龙</li>
+    </ul>
+    <h1></h1>
+    <div style="width:200px;height:200px;background:red;"></div>
+    <div style="width:200px;height:200px;background:yellow;"></div>
+</body>
+</html>

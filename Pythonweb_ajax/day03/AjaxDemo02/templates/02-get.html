@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get02</title>
+    <script src="/static/jquery-1.11.3.js"></script>
+    <script>
+        $(function () {
+            $('#btnGet').click(function () {
+                $.get('/ajax/02-server/',function (data) {
+                    //data表示的是响应回来的数据
+                    {#console.log(data)#}
+                    var msg = "姓名:"+data.uname+" 年龄:"+data.uage;
+                    $('#show').html(msg)
+                },"json");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btnGet">jq-ajax-get</button>
+    <div id="show"></div>
+</body>
+</html>

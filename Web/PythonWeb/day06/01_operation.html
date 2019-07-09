@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opration</title>
+    <script>
+        //var year = prompt("请输入年份:");
+        //只有零值为假
+        var year = 2000;
+        if(year){
+        var res = year % 4 == 0 && year % 100 != 0 || year % 400 ==0;
+        console.log(res);
+        }else{
+        year = prompt("请重新输入年份")
+        }
+
+        var r = !5;
+        console.log(r);
+
+
+        //带输入框的弹框，参数为字符串，表示提示信息，返回用户输入的内容
+        //var r = prompt("请输入年份:")
+        //console.log(r,typeof r)
+
+        //三目运算符
+        var age = 2;
+        var re = age >= 18 ? "成年人" : age <= 7 ? "不用上学" : "义务教育"
+        console.log(re);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

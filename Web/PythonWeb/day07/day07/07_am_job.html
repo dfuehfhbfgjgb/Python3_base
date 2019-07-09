@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AmJob</title>
+
+</head>
+<body>
+    <div class="box">
+        <h2>页面即将跳转...<span class="clock">5</span>
+        </h2>
+    </div>
+    <script>
+        var t=5;
+        var time=document.getElementsByClassName("clock")[0];
+        function fun(){
+            t--;
+            time.innerHTML=t;
+            if (t<=0){
+                location.href="http://www.baidu.com";
+                clearInterval(inter);
+            }
+        }
+        var inter=setInterval("fun()",1000);
+    </script>
+
+</body>
+</html>

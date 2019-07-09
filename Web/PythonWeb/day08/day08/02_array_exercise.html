@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script>
+	/*
+	var i = 10;
+	function f1(num){
+		num++;
+		console.log(num);  //11
+	}
+	f1(i);  //num=i    值传递
+	console.log(i);		//10
+	*/
+
+
+	/*
+	练习：
+		创建一个数组表示5个商品的价格；
+		将每个商品的价格调低10%；
+		输出每个商品的价格；
+		
+		输出所有商品价格中最贵的价格；
+		输出第一个价格为90元的商品在数组的下标，
+		若不存在则返回-1；
+	*/
+	var priceList = [60,70,90,10,90];
+
+	//将每个商品的价格调低10%；
+	for(var i=0; i<priceList.length; i++){
+		priceList[i] *= 0.9;
+	}
+	/*priceList.forEach( function(p){
+		p *= 0.9;		//此处不会影响到原始数组
+	} )*/
+
+	//输出每个商品的价格
+	//for(var i=0; i<priceList.length; i++){
+	//	console.log( priceList[i] );
+	//}
+	priceList.forEach( function(p){
+		console.log(p);
+	} )
+
+	//创建函数，返回数组中所有元素中的最大值
+	function getMax(arr){
+		//先假设第0个是最大值
+		var max = arr[0];
+		//遍历后续的每个元素，看看那个比max大
+		for(var i=1; i<arr.length; i++){
+			max  =  arr[i]>max ? arr[i] : max;
+		}
+		//返回遍历后得到的最大值
+		return max;
+	}
+	var m = getMax(priceList);
+	console.log('所有价格中的最大值为:'+m);
+	
+	//创建函数，返回数组中第一次出现指定元素的下标；若从未出现，则返回-1		
+	function indexOf(arr, e){
+		var index = -1;  //目标元素在数组中的下标
+		for(var i=0; i<arr.length; i++){
+			if(arr[i]===e){
+				index = i;
+				break;
+			}
+		} //提示：此处使用forEach不方便
+		return index;
+	}
+	
+	var i = indexOf(priceList, 90);
+	console.log('目标元素第一次出现的下标：'+i);
+
+
+	</script>
+</body>
+</html>

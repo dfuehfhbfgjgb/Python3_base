@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dataType</title>
+    <script>
+        var a = 100;
+        //八进制
+        var b = 053;
+        //十六进制
+        var c = 0x53;
+        //输出时一律按十进制输出
+        console.log(a,b,c);
+
+        var d = 1.5;
+        var f = 1.5e3;//1.5*10**3
+        console.log(d,f);
+        //字符串
+        var s1 = "你hello";
+        var s2 = "100";
+        //获取指定下标对应字符的Unicode编码
+        var code = s1.charCodeAt(0);
+        console.log(code);
+        //布尔值boolean,只有True和False
+        var flag=true;
+        //undefined 变量未声明赋值时默认为undefined
+        //null 空值，解除对象引用
+
+        console.log(a,typeof a);
+        console.log(b,typeof b);
+        console.log(s1,typeof s1);
+        console.log(s2,typeof s2);
+        console.log(flag,typeof flag);
+        var age;
+        console.log(age,typeof age);
+        var num = null;
+        console.log(num,typeof num);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

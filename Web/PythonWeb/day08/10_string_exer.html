@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StringExer</title>
+</head>
+<body>
+    <input id="inputCode">
+    <button id='btCode'>执行</button>
+    <script>
+        btCode.onclick=function(){
+            var s=inputCode.value;
+            var tmp1=s.indexOf('@');
+            var tmp2=s.lastIndexOf('@');
+            if (tmp1!=-1){
+                alert('字符串中不存在@');
+            }else if(tmp1==tmp2){
+                alert('有且只有一个@');
+            }else{
+                alert('字符串中不止一个@');
+            }
+        }
+        
+    </script>
+</body>
+</html>

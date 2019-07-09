@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<h2>进制转换器</h2>
+	<input id="inputNum">
+	<button id="btBin">转换为二进制表示的字符串</button>
+	<button id="btOct">转换为八进制表示的字符串</button>
+	<p id="pResult">转换结果...</p>
+
+	<script>
+	btBin.onclick = function(){
+		//获取输入框中的用户输入:  input.value
+		var num = Number( inputNum.value );
+		
+		//把一个数字转换为二进制形式的字符串
+		var arr = []; //用于保存除法的余数
+		while(num!=0){
+			arr.unshift( num % 2 );  //对2求余
+			num = parseInt( num/2 ); //除2取整
+		}
+		var result = arr.join(''); //拼接数组元素
+
+		//呈现运算结果
+		pResult.innerHTML = result;
+	}
+	
+	</script>
+</body>
+</html>

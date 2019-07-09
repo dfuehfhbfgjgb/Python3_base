@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Window_Timer</title>
+</head>
+<body>
+    <span id="spanHour">00</span>:
+    <span id="spanMinute">00</span>:
+    <span id="spanSecond">00</span>
+    <button id="btStop">停止时间</button>
+    <script>
+        //做一个页面时钟
+        var timer=setInterval(function(){
+            var now=new Date();//获取系统当前时间
+            var h=now.getHours();
+            var m=now.getMinutes();
+            var s=now.getSeconds();
+            spanHour.innerHTML=h;
+            spanMinute.innerHTML=m;
+            spanSecond.innerHTML=s;
+            //console.log(now);
+        },1000);
+        
+        //取消周期性定时器
+        btStop.onclick=function(){
+            clearInterval(timer);
+        }
+        
+
+
+
+    </script>
+</body>
+</html>

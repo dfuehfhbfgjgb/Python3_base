@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tag</title>
+    <style>
+        a,p{
+            width:100px;
+            height:100px;
+            background:red;
+        }
+        input,img{
+            width:200px;
+            height:100px;
+        }
+        input{
+            width:200px;
+            height:100px;
+            /*行内元素与行内快元素默认按照文本的基础线对齐，
+            可以设置vertical-align设置元素之间的垂直对齐方式，
+            取top，middle，bottom添加给行内块元素上，
+            调整左右元素与当前元素的垂直对齐*/
+            vertical-align:bottom;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div></div>
+        <h1></h1>
+        <img src="">
+        <a href=""></a>
+
+    </div>
+    <h1>
+        <p></p>
+    </h1>
+    <!--p标签只能嵌套行内，不能嵌套块-->
+    <p>
+        <h1></h1>
+    </p>
+    <span>
+        <p></p>
+    </span>
+    <a href="">超链接</a>
+    <b>加粗</b>
+    <input type="text">
+    <img src="../02.jpg">
+
+    <h1>标题</h1>
+    <p>段落</p>
+    <div>容器</div>
+    <ul>
+        <li>列表</li>
+    </ul>
+    <form>
+        表单
+    </form>
+    <table>
+        <tr>
+            <td>表格</td>
+        </tr>
+    </table>
+</body>
+</html>

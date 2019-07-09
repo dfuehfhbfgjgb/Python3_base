@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <script>
+        /**
+         * 验证用户名是否存在
+         * 存在返回true不存在返回false
+         */
+        function checkuname() {
+            var ret = false;
+            //1.创建xhr
+            var xhr = createXhr();
+            //2.创建请求
+            var url = "/users/is-name?uname=" + $("#uname").val();
+            xhr.open("get", url, false);
+            //3.设置回调函数
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    if (xhr.responseText == '1') {
+                        ret = true;
+                        $("#info-name").html("用户名存在");
+                    } else {
+                        $("#info-name").html("通过");
+                    }
+                }
+            };
+            //4.发送send()
+            xhr.send(null);
+            return ret;
+        }
+
+        $(function () {
+
+            /**
+             *为#uname 绑定blur 事件
+             */
+            $("#uname").blur(function () {
+                checkuname();
+            });
+
+            $("#btnRegister").click(function () {
+                if(checkuname()){
+                    alert("用户名已存在，请重新注册")
+                }else{
+                    var xhr = createXhr();
+                    xhr.open('post', "/users/createuser", true);
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState == 4 && xhr.status == 200) {
+                            alert(xhr.responseText);
+                        }
+                    };
+                    xhr.setRequestHeader("Content-Type",
+                    "application/x-www-form-urlencoded");
+                    var uname = $("#uname").val();
+                    var upwd = $("#upwd").val();
+                    var nickname = $("#nickname").val();
+                    var csrf = $("[name='csrfmiddlewaretoken']").val();
+                    var params = "uname=" + uname + "&upwd=" + upwd +
+                        "&nickname=" + nickname +
+                        "&csrfmiddlewaretoken=" + csrf;
+                    xhr.send(params);
+                }
+            });
+
+
+        });
+
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+{% csrf_token %}
+<div>
+    用户名：<input type="text" id="uname">
+    <span id="info-name"></span>
+</div>
+<div>
+    密码：<input type="password" id="upwd">
+</div>
+<div>
+    昵称：<input type="text" id="nickname">
+</div>
+<div>
+    <button id="btnRegister">注册</button>
+</div>
+<span id="register-info"></span>
+
+</body>
+</html>

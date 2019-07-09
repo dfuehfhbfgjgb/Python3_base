@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<h2>使用复杂数组呈现数据——商品列表</h2>
+	<table width="100%" border="1">
+		<thead>
+			<tr>
+				<th>编号</th>
+				<th>名称</th>
+				<th>单价</th>
+				<th>生产日期</th>
+			</tr>
+		</thead>
+		<tbody id="tbodyLaptop">
+			<tr>
+				<td>101</td>
+				<td>戴尔燃700</td>
+				<td>￥5000</td>
+				<td>2018-05</td>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>戴尔燃700</td>
+				<td>￥5000</td>
+				<td>2018-05</td>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>戴尔燃700</td>
+				<td>￥5000</td>
+				<td>2018-05</td>
+			</tr>
+		</tbody>
+	</table>
+	<script>
+	/*
+	数据库表中的数据呈现在页面中天然就是TABLE
+	在JS中存储时可以使用两种方案：
+	(1)数组的数组——二维数组
+	(2)对象的数组
+	*/
+	//使用方案一:存储所有笔记本数据		
+	var data1 = [
+		[5001, '戴尔燃7000', 5000, '2018/05'],
+		[5008, '小米AIR', 7000, '2018/06'],
+		[5015, '联想小新', 8000, '2018/08'],
+		[5033, 'APPLE MAC', 3000, '2018/11'],
+	]; 
+	//遍历整个数组，构建一段HTML文本
+	var html = '';
+	data1.forEach(function(pc, i){
+		html += '<tr>';
+		//把每个电脑的数据拼接为<td>...</td>
+		html += '  <td>'+pc[0]+'</td>';
+		html += '  <td>'+pc[1]+'</td>';
+		html += '  <td>'+pc[2]+'</td>';
+		html += '  <td>'+pc[3]+'</td>';
+		html += '</tr>';
+	})
+	//把拼接好的TABLE内容放入页面中
+	tbodyLaptop.innerHTML = html;
+	
+	</script>
+</body>
+</html>

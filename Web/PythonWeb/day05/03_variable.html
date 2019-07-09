@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Variable</title>
+    <script>
+        //声明变量
+        var a = 10;
+        var b;
+        b = 100;
+        var a1 = 20,a2 = 30,a3 = 50;
+        var b1,b2,b3;
+        b1 = "10";
+        b2 = "20";
+        //变量声明时可以省略关键字var。一旦省略关键字，一律为全局变量。
+        age = 20;
+        //变量声明，但未赋值
+        var username;
+        console.log(username);
+        //访问未声明，未赋值的变量
+        //console.log(n);//not defind
+        console.log(num);//undefind
+        //变量提升，浏览器在执行JS代码之前会检索所有的var关键字，
+        //只要在程序中有变量的声明就不会报错，默认为undefind
+        var num = 1000;
+        //常量
+        const PI = 3.14;
+        console.log(PI);
+        //PI=3.14；
+        //定义变量，表示半径，计算周长和面积
+        var r,c,s;
+        r = 10;
+        c = 2*PI*r;
+        s = PI*r*r;
+        //保留n位小数位toFixed（n）
+        c = c.toFixed(2)
+        s = s.toFixed(0)
+        console.log(c);
+        console.log(s);
+
+        var n1 = 13.35;
+        n1=n1.toFixed(1);
+        console.log(n1);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

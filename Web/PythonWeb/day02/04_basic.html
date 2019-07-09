@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        h1{
+            color:green;
+
+        }
+        #d1{
+            background:red;
+        }
+        .c1{
+            background:orange;
+        }
+        .c2{
+            /*设置文本的水平对齐方式，默认居左*/
+            text-align:center;
+        }
+        /*选择器组合使用 标签名在前类名在后，不能放反*/
+        p.c1{/*匹配类名为c1的p元素*/
+            text-align:center;
+
+        }
+        .c1p{/*匹配类名为.c1p的元素*/
+
+        }
+        #d1,.c2,p{
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="d1">小泽1</h1>
+    <h1 class="c1 c2">小泽2</h1>
+    <h1>小泽3</h1>
+    <h1 class="c1">小泽4</h1>
+    <p class="c1">示例文本</p>
+    <p>参考2</p>
+</body>
+</html>

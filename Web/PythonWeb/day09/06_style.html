@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Window</title>
+    <script src='index.js'></script> 
+    <style> 
+        #d1{
+            color: red;
+        }
+        .c1{
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>样式操作</h1>
+    <p>操作行内样式</p>
+    <script>
+        var h1 = $('h1');
+        h1.id='d1';
+        h1.className='c1';
+        var p=$('p');
+        //获取样式表对象
+        console.log(p.style)
+        p.style='width:200px;height:200px;background:pink;';
+        p.style.width="300px";
+        p.style.fontSize="32px";
+        p.style.color="green";
+    </script>
+</body>
+</html>

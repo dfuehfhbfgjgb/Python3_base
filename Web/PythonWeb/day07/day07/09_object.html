@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script>
+	/*
+	练习：创建一个对象表示一个矩形，
+	包含成员属性：width、height，
+	以及成员方法：getSize()、getPerimeter()
+	输出该对象的周长和面积
+	*/
+	var rect2 = {
+		//声明对象中的成员属性
+		width: 200,
+		height: 100,
+		//声明对象中的成员方法
+		getSize: function(){
+			//console.log(width); 运行时错误
+			//console.log(this.width);
+			return this.width * this.height;
+		},
+		getPerimeter: function(){
+			return 2*(this.width+this.height);
+		}
+	};
+	console.log(rect2);
+	//console.log(rect2.width);
+	//console.log(rect2.height);
+	var s = rect2.getSize();
+	console.log('矩形的面积为：'+s);
+	var p = rect2.getPerimeter();
+	console.log('矩形的周长为：'+p);
+	</script>
+</body>
+</html>

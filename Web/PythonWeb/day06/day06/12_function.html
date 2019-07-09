@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	//1.无参数，无返回值的函数
+	function f1(){
+		console.log("f1被调用");
+	}
+	f1();
+	//2.带参数，无返回值的函数
+	function f2(a,b){//形式参数
+		var r = a + b;
+		console.log(a,b,r);
+		//函数允许形参与实参个数不匹配
+		//函数内部变量arguments，保存实际传递过来的参数
+		console.log(arguments);
+	}
+	//实际参数
+	f2(10,20);//传参
+	f2(100);
+	f2(100,200,30);
+
+	//3.函数的返回值：将函数内部的结果返回给外界使用
+	//return只能返回一个值，return后面的代码不执行
+	function f3(a){
+		if(a){
+			var r1 = a + a;
+			var r2 = a * a;
+			console.log(r1,r2);
+			return "合法";
+		}else{//undefined 或 0
+			console.log("不合法");
+			return;
+		}		
+	}
+	var res = f3(5);
+	console.log(res);
+	var res2 = f3();
+	console.log(res2);
+
+	//作用域
+	var age = 20;
+	function fn(){	
+		uname = "张三";
+		var n =  10;
+		//变量提升，当前作用域中使用var关键字声明变量age,浏览器执行过程中，一定使用局部变量，当前访问该变量时还未赋值
+		console.log(age);//undefined
+		var age = 100;
+	}
+	fn();
+	//console.log(age);
+	//console.log(uname);
+	//console.log(n); 报错，外界不能访问局部变量
+
+
+	
+
+
+
+
+
+
+
+
+
+
+  
+  
+  </script>
+ </head>
+ <body>
+	
+ </body>
+</html>

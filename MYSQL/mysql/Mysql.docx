@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Mysql</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///C:/Users/lvze/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.3.13/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <style> 
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+ 
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview   ">
+      <h1>MySQL数据库</h1>
+<table>
+<thead>
+<tr>
+<th>Tedu Python 教学部</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Author：吕泽</td>
+</tr>
+<tr>
+<td>Days：2天</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<ul>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0">数据库概述</a>
+<ul>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E9%98%B6%E6%AE%B5">数据存储阶段</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8">数据库应用</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5">基础概念</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E7%B1%BB%E5%92%8C%E5%B8%B8%E8%A7%81%E6%95%B0%E6%8D%AE%E5%BA%93">数据库分类和常见数据库</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E8%AE%A4%E8%AF%86%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8Cmysql">认识关系型数据库和MySQL</a></li>
+</ul>
+</li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#sql%E8%AF%AD%E5%8F%A5">SQL语句</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C">MySQL 数据库操作</a>
+<ul>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C">数据库操作</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9A%84%E7%AE%A1%E7%90%86">数据表的管理</a></li>
+</ul>
+</li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%95%B0%E6%8D%AE%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C">数据基本操作</a>
+<ul>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%8F%92%E5%85%A5insert">插入(insert)</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%9F%A5%E8%AF%A2select">查询(select)</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#where%E5%AD%90%E5%8F%A5">where子句</a>
+<ul>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6">算数运算符</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6">比较运算符</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6">逻辑运算符</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6">位运算符</a></li>
+</ul>
+</li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%9B%B4%E6%96%B0%E8%A1%A8%E8%AE%B0%E5%BD%95update">更新表记录(update)</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E5%88%A0%E9%99%A4%E8%A1%A8%E8%AE%B0%E5%BD%95delete">删除表记录（delete）</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E8%A1%A8%E5%AD%97%E6%AE%B5%E7%9A%84%E6%93%8D%E4%BD%9Calter">表字段的操作(alter)</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%97%B6%E9%97%B4%E7%B1%BB%E5%9E%8B%E6%95%B0%E6%8D%AE">时间类型数据</a>
+<ul>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F">时间格式</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0">日期时间函数</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%97%B6%E9%97%B4%E6%93%8D%E4%BD%9C">时间操作</a></li>
+</ul>
+</li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5">高级查询语句</a>
+<ul>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2%E5%92%8C%E6%AD%A3%E5%88%99%E6%9F%A5%E8%AF%A2">模糊查询和正则查询</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%8E%92%E5%BA%8F">排序</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E5%88%86%E9%A1%B5">分页</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2">联合查询</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2">多表查询</a></li>
+</ul>
+</li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD">数据备份</a></li>
+</ul>
+</li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#python%E6%93%8D%E4%BD%9Cmysql%E6%95%B0%E6%8D%AE%E5%BA%93">Python操作MySQL数据库</a>
+<ul>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#pymysql%E5%AE%89%E8%A3%85">pymysql安装</a></li>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#pymysql%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B">pymysql使用流程</a>
+<ul>
+<li><a href="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/Mysql.html#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0">常用函数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0">数据库概述</h2>
+
+<h3 class="mume-header" id="%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E9%98%B6%E6%AE%B5">数据存储阶段</h3>
+
+<p>【1】 人工管理阶段</p>
+<p>缺点 ：  数据无法共享,不能单独保持,数据存储量有限</p>
+<p>【2】 文件管理阶段 （.txt  .doc  .xls）</p>
+<p>优点 ： 数据可以长期保存,可以存储大量的数据,使用简单</p>
+<p>缺点 ：  数据一致性差,数据查找修改不方便,数据冗余度可能比较大</p>
+<p>【3】数据库管理阶段</p>
+<p>优点 ： 数据组织结构化降低了冗余度,提高了增删改查的效率,容易扩展,方便程序调用，做自动化处理</p>
+<p>缺点 ：需要使用sql 或者 其他特定的语句，相对比较复杂</p>
+<h3 class="mume-header" id="%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BA%94%E7%94%A8">数据库应用</h3>
+
+<blockquote>
+<p>融机构、游戏网站、购物网站、论坛网站 ... ...</p>
+</blockquote>
+<p><img src="./Mysql_files/数据库系统.png" alt=""></p>
+<h3 class="mume-header" id="%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5">基础概念</h3>
+
+<blockquote>
+<p>数据 ： 能够输入到计算机中并被识别处理的信息集合</p>
+</blockquote>
+<blockquote>
+<p>数据结构 ：研究一个数据集合中数据之间关系的</p>
+</blockquote>
+<blockquote>
+<p>数据库 ： 按照数据结构，存储管理数据的仓库。数据库是在数据库管理系统管理和控制下，在一定介质上的数据集合。</p>
+</blockquote>
+<blockquote>
+<p>数据库管理系统 ：管理数据库的软件，用于建立和维护数据库</p>
+</blockquote>
+<blockquote>
+<p>数据库系统 ： 由数据库和数据库管理系统，开发工具等组成的集合</p>
+</blockquote>
+<h3 class="mume-header" id="%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E7%B1%BB%E5%92%8C%E5%B8%B8%E8%A7%81%E6%95%B0%E6%8D%AE%E5%BA%93">数据库分类和常见数据库</h3>
+
+<ul>
+<li>关系型数据库和非关系型数据库</li>
+</ul>
+<blockquote>
+<p>关系型： 采用关系模型（二维表）来组织数据结构的数据库</p>
+</blockquote>
+<blockquote>
+<p>非关系型： 不采用关系模型组织数据结构的数据库</p>
+</blockquote>
+<ul>
+<li>开源数据库和非开源数据库</li>
+</ul>
+<blockquote>
+<p>开源：MySQL、SQLite、MongoDB</p>
+</blockquote>
+<blockquote>
+<p>非开源：Oracle、DB2、SQL_Server</p>
+</blockquote>
+<ul>
+<li>常见的关系型数据库</li>
+</ul>
+<blockquote>
+<p>MySQL、Oracle、SQL_Server、DB2 SQLite</p>
+</blockquote>
+<h3 class="mume-header" id="%E8%AE%A4%E8%AF%86%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8Cmysql">认识关系型数据库和MySQL</h3>
+
+<ol>
+<li>数据库结构 （图库结构）</li>
+</ol>
+<blockquote>
+<p>数据元素 --&gt; 记录 --&gt;数据表 --&gt; 数据库</p>
+</blockquote>
+<p><img src="./Mysql_files/库结构.png" alt=""></p>
+<ol start="2">
+<li>数据库概念解析</li>
+</ol>
+<blockquote>
+<p>数据表 ： 存放数据的表格</p>
+</blockquote>
+<blockquote>
+<p>字段： 每个列，用来表示该列数据的含义</p>
+</blockquote>
+<blockquote>
+<p>记录： 每个行，表示一组完整的数据</p>
+</blockquote>
+<p><img src="./Mysql_files/表结构.png" alt=""></p>
+<ol start="3">
+<li>MySQL特点</li>
+</ol>
+<ul>
+<li>是开源数据库，使用C和C++编写</li>
+<li>能够工作在众多不同的平台上</li>
+<li>提供了用于C、C++、Python、Java、Perl、PHP、Ruby众多语言的API</li>
+<li>存储结构优良，运行速度快</li>
+<li>功能全面丰富</li>
+</ul>
+<ol start="4">
+<li>MySQL安装</li>
+</ol>
+<blockquote>
+<p>Ubuntu安装MySQL服务</p>
+<blockquote>
+<p>安装服务端: sudo apt-get install mysql-server<br>
+安装客户端: sudo apt-get install mysql-client</p>
+<blockquote>
+<p>配置文件：/etc/mysql<br>
+命令集： /usr/bin<br>
+数据库存储目录 ：/var/lib/mysql</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Windows安装MySQL</p>
+<blockquote>
+<p>下载MySQL安装包(windows)  <a href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a><br>
+mysql-installer***5.7.***.msi</p>
+</blockquote>
+<blockquote>
+<p>安装教程去安装</p>
+</blockquote>
+</blockquote>
+<ol start="5">
+<li>启动和连接MySQL服务</li>
+</ol>
+<blockquote>
+<p>服务端启动</p>
+<blockquote>
+<p>查看MySQL状态: sudo /etc/init.d/mysql status<br>
+启动服务：sudo /etc/init.d/mysql start | stop | restart</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>客户端连接</p>
+<blockquote>
+<p>命令格式</p>
+<blockquote>
+<p>mysql -h主机地址 -u用户名 -p密码<br>
+mysql -hlocalhost -uroot -p123456<br>
+本地连接可省略 -h 选项: mysql -uroot -p123456</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>关闭连接</p>
+<blockquote>
+<p>ctrl-D<br>
+exit</p>
+</blockquote>
+</blockquote>
+<h2 class="mume-header" id="sql%E8%AF%AD%E5%8F%A5">SQL语句</h2>
+
+<blockquote>
+<p>什么是SQL</p>
+<blockquote>
+<p>结构化查询语言(Structured Query Language)，一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>SQL语句使用特点</p>
+<ul>
+<li>SQL语言基本上独立于数据库本身</li>
+<li>各种不同的数据库对SQL语言的支持与标准存在着细微的不同</li>
+<li>每条命令必须以 ; 结尾</li>
+<li>SQL命令关键字不区分字母大小写</li>
+</ul>
+</blockquote>
+<h2 class="mume-header" id="mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C">MySQL 数据库操作</h2>
+
+<h3 class="mume-header" id="%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C">数据库操作</h3>
+
+<p>1.查看已有库</p>
+<blockquote>
+<p>show databases;</p>
+</blockquote>
+<p>2.创建库(指定字符集)</p>
+<blockquote>
+<p>create database 库名 [character set utf8];</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="sql" class="language-sql">e<span class="token punctuation">.</span>g<span class="token punctuation">.</span> 创建stu数据库，编码为utf8
+<span class="token keyword">create</span> <span class="token keyword">database</span> stu <span class="token keyword">character</span> <span class="token keyword">set</span> utf8<span class="token punctuation">;</span>
+<span class="token keyword">create</span> <span class="token keyword">database</span> stu <span class="token keyword">charset</span><span class="token operator">=</span>utf8<span class="token punctuation">;</span>
+</pre><p>3.查看创建库的语句(字符集)</p>
+<blockquote>
+<p>show create database 库名;</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="sql" class="language-sql">e<span class="token punctuation">.</span>g<span class="token punctuation">.</span> 查看stu创建方法
+<span class="token keyword">show</span> <span class="token keyword">create</span> <span class="token keyword">database</span> stu<span class="token punctuation">;</span>
+</pre><p>4.查看当前所在库</p>
+<blockquote>
+<p>select database();</p>
+</blockquote>
+<p>5.切换库</p>
+<blockquote>
+<p>use 库名;</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="sql" class="language-sql">e<span class="token punctuation">.</span>g<span class="token punctuation">.</span> 使用stu数据库
+<span class="token keyword">use</span> stu<span class="token punctuation">;</span>
+</pre><p>6.删除库</p>
+<blockquote>
+<p>drop database 库名;</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="sql" class="language-sql">e<span class="token punctuation">.</span>g<span class="token punctuation">.</span> 删除test数据库
+<span class="token keyword">drop</span> <span class="token keyword">database</span> test<span class="token punctuation">;</span>
+</pre><p>7.库名的命名规则</p>
+<blockquote>
+<ul>
+<li>数字、字母、下划线,但不能使用纯数字</li>
+<li>库名区分字母大小写</li>
+<li>不能使用特殊字符和mysql关键字</li>
+</ul>
+</blockquote>
+<h3 class="mume-header" id="%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9A%84%E7%AE%A1%E7%90%86">数据表的管理</h3>
+
+<ol>
+<li>
+<p>表结构设计初步</p>
+<p>【1】 分析存储内容<br>
+【2】 确定字段构成<br>
+【3】 设计字段类型</p>
+</li>
+<li>
+<p>数据类型支持</p>
+</li>
+</ol>
+<blockquote>
+<p>数字类型：</p>
+<blockquote>
+<p>整数类型（精确值） - INTEGER，INT，SMALLINT，TINYINT，MEDIUMINT，BIGINT<br>
+定点类型（精确值） - DECIMAL<br>
+浮点类型（近似值） - FLOAT，DOUBLE<br>
+比特值类型 - BIT</p>
+</blockquote>
+</blockquote>
+<p><img src="./Mysql_files/整型.png" alt=""></p>
+<blockquote>
+<p>对于精度比较高的东西，比如money，用decimal类型提高精度减少误差。列的声明语法是DECIMAL(M,D)。</p>
+<blockquote>
+<p>M是数字的最大位数（精度）。其范围为1～65，M 的默认值是10。<br>
+D是小数点右侧数字的数目（标度）。其范围是0～30，但不得超过M。<br>
+比如 DECIMAL(6,2)最多存6位数字，小数点后占2位,取值范围-9999.99到9999.99。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>比特值类型指0，1值表达2种情况，如真，假</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>字符串类型：</p>
+<blockquote>
+<p>CHAR和VARCHAR类型<br>
+BINARY和VARBINARY类型<br>
+BLOB和TEXT类型<br>
+ENUM类型和SET类型</p>
+</blockquote>
+</blockquote>
+<p><img src="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/img/%E5%AD%97%E7%AC%A6%E4%B8%B2.png" alt=""></p>
+<ul>
+<li>char 和 varchar</li>
+</ul>
+<blockquote>
+<p>char：定长，效率高，一般用于固定长度的表单提交数据存储，默认1字符<br>
+varchar：不定长，效率偏低</p>
+</blockquote>
+<ul>
+<li>text 和blob</li>
+</ul>
+<blockquote>
+<p>text用来存储非二进制文本<br>
+blob用来存储二进制字节串</p>
+</blockquote>
+<ul>
+<li>enum 和 set</li>
+</ul>
+<blockquote>
+<p>enum用来存储给出的一个值<br>
+set用来存储给出的值中一个或多个值</p>
+</blockquote>
+<hr>
+<ol>
+<li>表的基本操作</li>
+</ol>
+<blockquote>
+<p>创建表(指定字符集)</p>
+<blockquote>
+<p>create table 表名(<br>
+字段名 数据类型,<br>
+字段名 数据类型,<br>
+...<br>
+字段名 数据类型<br>
+);</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<ul>
+<li>如果你想设置数字为无符号则加上 unsigned</li>
+<li>如果你不想字段为 NULL 可以设置字段的属性为 NOT NULL， 在操作数据库时如果输入该字段的数据为NULL ，就会报错。</li>
+<li>DEFAULT 表示设置一个字段的默认值</li>
+<li>AUTO_INCREMENT定义列为自增的属性，一般用于主键，数值会自动加1。</li>
+<li>PRIMARY KEY关键字用于定义列为主键。主键的值不能重复。</li>
+</ul>
+</blockquote>
+</blockquote>
+<pre data-role="codeBlock" data-info="sql" class="language-sql">e<span class="token punctuation">.</span>g<span class="token punctuation">.</span>  创建班级表
+<span class="token keyword">create</span> <span class="token keyword">table</span> class_1 <span class="token punctuation">(</span>id <span class="token keyword">int</span> <span class="token keyword">primary</span> <span class="token keyword">key</span> <span class="token keyword">auto_increment</span><span class="token punctuation">,</span>name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">,</span>age <span class="token keyword">int</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">,</span>sex <span class="token keyword">enum</span><span class="token punctuation">(</span><span class="token string">'w'</span><span class="token punctuation">,</span><span class="token string">'m'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>score <span class="token keyword">float</span> <span class="token keyword">default</span> <span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+e<span class="token punctuation">.</span>g<span class="token punctuation">.</span> 创建兴趣班表
+<span class="token keyword">create</span> <span class="token keyword">table</span> interest <span class="token punctuation">(</span>id <span class="token keyword">int</span> <span class="token keyword">primary</span> <span class="token keyword">key</span> <span class="token keyword">auto_increment</span><span class="token punctuation">,</span>name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">,</span>hobby <span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">'sing'</span><span class="token punctuation">,</span><span class="token string">'dance'</span><span class="token punctuation">,</span><span class="token string">'draw'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>course <span class="token keyword">char</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">,</span>price <span class="token keyword">decimal</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">comment</span> <span class="token keyword">text</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><blockquote>
+<p>查看数据表</p>
+<blockquote>
+<p>show tables；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>查看已有表的字符集</p>
+<blockquote>
+<p>show create table 表名;</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>查看表结构</p>
+<blockquote>
+<p>desc 表名;</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>删除表</p>
+<blockquote>
+<p>drop table 表名;</p>
+</blockquote>
+</blockquote>
+<h2 class="mume-header" id="%E6%95%B0%E6%8D%AE%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C">数据基本操作</h2>
+
+<h3 class="mume-header" id="%E6%8F%92%E5%85%A5insert">插入(insert)</h3>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">insert</span> <span class="token keyword">into</span> 表名 <span class="token keyword">values</span><span class="token punctuation">(</span>值<span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>值<span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> 表名<span class="token punctuation">(</span>字段<span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token keyword">values</span><span class="token punctuation">(</span>值<span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+</pre><pre data-role="codeBlock" data-info="sql" class="language-sql">e<span class="token punctuation">.</span>g<span class="token punctuation">.</span> 
+<span class="token keyword">insert</span> <span class="token keyword">into</span> class_1 <span class="token keyword">values</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'Baron'</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token string">'m'</span><span class="token punctuation">,</span><span class="token number">91</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'Jame'</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token string">'m'</span><span class="token punctuation">,</span><span class="token number">90</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="%E6%9F%A5%E8%AF%A2select">查询(select)</h3>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> 表名 <span class="token punctuation">[</span><span class="token keyword">where</span> 条件<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">select</span> 字段<span class="token number">1</span><span class="token punctuation">,</span>字段名<span class="token number">2</span> <span class="token keyword">from</span> 表名 <span class="token punctuation">[</span><span class="token keyword">where</span> 条件<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</pre><pre data-role="codeBlock" data-info="sql" class="language-sql">e<span class="token punctuation">.</span>g<span class="token punctuation">.</span> 
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> class_1<span class="token punctuation">;</span>
+
+<span class="token keyword">select</span> name<span class="token punctuation">,</span>age <span class="token keyword">from</span> class_1<span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="where%E5%AD%90%E5%8F%A5">where子句</h3>
+
+<p>where子句在sql语句中扮演了重要角色，主要通过一定的运算条件进行数据的筛选</p>
+<p>MySQL 主要有以下几种运算符：</p>
+<blockquote>
+<p>算术运算符<br>
+比较运算符<br>
+逻辑运算符<br>
+位运算符</p>
+</blockquote>
+<h4 class="mume-header" id="%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6">算数运算符</h4>
+
+<p><img src="./Mysql_files/算数.png" alt=""></p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql">e<span class="token punctuation">.</span>g<span class="token punctuation">.</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> class_1 <span class="token keyword">where</span> age <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6">比较运算符</h4>
+
+<p><img src="./Mysql_files/比较.png" alt=""></p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql">e<span class="token punctuation">.</span>g<span class="token punctuation">.</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> class_1 <span class="token keyword">where</span> age <span class="token operator">&gt;</span> <span class="token number">8</span><span class="token punctuation">;</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> class_1 <span class="token keyword">where</span> <span class="token operator">between</span> <span class="token number">8</span> <span class="token operator">and</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> class_1 <span class="token keyword">where</span> age <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6">逻辑运算符</h4>
+
+<p><img src="./Mysql_files/逻辑.png" alt=""></p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql">e<span class="token punctuation">.</span>g<span class="token punctuation">.</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> class_1 <span class="token keyword">where</span> sex<span class="token operator">=</span><span class="token string">'m'</span> <span class="token operator">and</span> age<span class="token operator">&gt;</span><span class="token number">9</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6">位运算符</h4>
+
+<p><img src="./Mysql_files/位.png" alt=""></p>
+<p><img src="./Mysql_files/运算符.png" alt=""></p>
+<h3 class="mume-header" id="%E6%9B%B4%E6%96%B0%E8%A1%A8%E8%AE%B0%E5%BD%95update">更新表记录(update)</h3>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">update</span> 表名 <span class="token keyword">set</span> 字段<span class="token number">1</span><span class="token operator">=</span>值<span class="token number">1</span><span class="token punctuation">,</span>字段<span class="token number">2</span><span class="token operator">=</span>值<span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">where</span> 条件<span class="token punctuation">;</span>
+</pre><pre data-role="codeBlock" data-info="sql" class="language-sql">e<span class="token punctuation">.</span>g<span class="token punctuation">.</span>
+<span class="token keyword">update</span> class_1 <span class="token keyword">set</span> age<span class="token operator">=</span><span class="token number">11</span> <span class="token keyword">where</span> name<span class="token operator">=</span><span class="token string">'Abby'</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="%E5%88%A0%E9%99%A4%E8%A1%A8%E8%AE%B0%E5%BD%95delete">删除表记录（delete）</h3>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql"><span class="token keyword">delete</span> <span class="token keyword">from</span> 表名 <span class="token keyword">where</span> 条件<span class="token punctuation">;</span>
+
+注意:<span class="token keyword">delete</span>语句后如果不加<span class="token keyword">where</span>条件<span class="token punctuation">,</span>所有记录全部清空
+</pre><pre data-role="codeBlock" data-info="sql" class="language-sql">e<span class="token punctuation">.</span>g<span class="token punctuation">.</span>
+<span class="token keyword">delete</span> <span class="token keyword">from</span> class_1 <span class="token keyword">where</span> name<span class="token operator">=</span><span class="token string">'Abby'</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="%E8%A1%A8%E5%AD%97%E6%AE%B5%E7%9A%84%E6%93%8D%E4%BD%9Calter">表字段的操作(alter)</h3>
+
+<pre data-role="codeBlock" data-info="SQL" class="language-sql">语法 ：<span class="token keyword">alter</span> <span class="token keyword">table</span> 表名 执行动作<span class="token punctuation">;</span>
+
+<span class="token operator">*</span> 添加字段<span class="token punctuation">(</span><span class="token keyword">add</span><span class="token punctuation">)</span>
+    <span class="token keyword">alter</span> <span class="token keyword">table</span> 表名 <span class="token keyword">add</span> 字段名 数据类型<span class="token punctuation">;</span>
+    <span class="token keyword">alter</span> <span class="token keyword">table</span> 表名 <span class="token keyword">add</span> 字段名 数据类型 <span class="token keyword">first</span><span class="token punctuation">;</span>
+    <span class="token keyword">alter</span> <span class="token keyword">table</span> 表名 <span class="token keyword">add</span> 字段名 数据类型 <span class="token keyword">after</span> 字段名<span class="token punctuation">;</span>
+<span class="token operator">*</span> 删除字段<span class="token punctuation">(</span><span class="token keyword">drop</span><span class="token punctuation">)</span>
+    <span class="token keyword">alter</span> <span class="token keyword">table</span> 表名 <span class="token keyword">drop</span> 字段名<span class="token punctuation">;</span>
+<span class="token operator">*</span> 修改数据类型<span class="token punctuation">(</span><span class="token keyword">modify</span><span class="token punctuation">)</span>
+    <span class="token keyword">alter</span> <span class="token keyword">table</span> 表名 <span class="token keyword">modify</span> 字段名 新数据类型<span class="token punctuation">;</span>
+<span class="token operator">*</span> 修改字段名<span class="token punctuation">(</span>change<span class="token punctuation">)</span>
+    <span class="token keyword">alter</span> <span class="token keyword">table</span> 表名 change 旧字段名 新字段名 新数据类型<span class="token punctuation">;</span>
+<span class="token operator">*</span> 表重命名<span class="token punctuation">(</span><span class="token keyword">rename</span><span class="token punctuation">)</span>
+    <span class="token keyword">alter</span> <span class="token keyword">table</span> 表名 <span class="token keyword">rename</span> 新表名<span class="token punctuation">;</span>
+</pre><pre data-role="codeBlock" data-info="sql" class="language-sql">e<span class="token punctuation">.</span>g<span class="token punctuation">.</span> 
+<span class="token keyword">alter</span> <span class="token keyword">table</span> interest <span class="token keyword">add</span> <span class="token keyword">date</span> <span class="token keyword">Date</span> <span class="token keyword">after</span> course<span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="%E6%97%B6%E9%97%B4%E7%B1%BB%E5%9E%8B%E6%95%B0%E6%8D%AE">时间类型数据</h3>
+
+<blockquote>
+<p>时间和日期类型:</p>
+<blockquote>
+<p>DATE，DATETIME和TIMESTAMP类型<br>
+TIME类型<br>
+年份类型YEAR</p>
+</blockquote>
+</blockquote>
+<p><img src="file:///home/tarena/%E6%A1%8C%E9%9D%A2/python/MYSQL/mysql/img/%E6%97%B6%E9%97%B4.png" alt=""></p>
+<h4 class="mume-header" id="%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F">时间格式</h4>
+
+<blockquote>
+<p>date ："YYYY-MM-DD"<br>
+time ："HH:MM:SS"<br>
+datetime ："YYYY-MM-DD HH:MM:SS"<br>
+timestamp ："YYYY-MM-DD HH:MM:SS"<br>
+注意<br>
+1、datetime ：不给值默认返回NULL值<br>
+2、timestamp ：不给值默认返回系统当前时间</p>
+</blockquote>
+<h4 class="mume-header" id="%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0">日期时间函数</h4>
+
+<ul>
+<li>now()  返回服务器当前时间</li>
+<li>curdate() 返回当前日期</li>
+<li>curtime() 返回当前时间</li>
+<li>date(date) 返回指定时间的日期</li>
+<li>time(date) 返回指定时间的时间</li>
+</ul>
+<h4 class="mume-header" id="%E6%97%B6%E9%97%B4%E6%93%8D%E4%BD%9C">时间操作</h4>
+
+<ul>
+<li>查找操作</li>
+</ul>
+<pre data-role="codeBlock" data-info="sql" class="language-sql">  <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> timelog <span class="token keyword">where</span> <span class="token keyword">Date</span> <span class="token operator">=</span> <span class="token string">"2018-07-02"</span><span class="token punctuation">;</span>
+  <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> timelog <span class="token keyword">where</span> <span class="token keyword">Date</span><span class="token operator">&gt;=</span><span class="token string">"2018-07-01"</span> <span class="token operator">and</span> <span class="token keyword">Date</span><span class="token operator">&lt;=</span><span class="token string">"2018-07-31"</span><span class="token punctuation">;</span>
+</pre><ul>
+<li>
+<p>日期时间运算</p>
+<ul>
+<li>
+<p>语法格式</p>
+<p>select * from 表名  where 字段名 运算符 (时间-interval 时间间隔单位);</p>
+</li>
+<li>
+<p>时间间隔单位：  1 day | 2 hour | 1 minute | 2 year | 3 month</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="sql" class="language-sql">  <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> timelog <span class="token keyword">where</span> shijian <span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token keyword">interval</span> <span class="token number">1</span> <span class="token keyword">day</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="%E9%AB%98%E7%BA%A7%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5">高级查询语句</h3>
+
+<h4 class="mume-header" id="%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2%E5%92%8C%E6%AD%A3%E5%88%99%E6%9F%A5%E8%AF%A2">模糊查询和正则查询</h4>
+
+<p>LIKE用于在where子句中进行模糊查询，SQL LIKE 子句中使用百分号 %字符来表示任意字符。</p>
+<p>使用 LIKE 子句从数据表中读取数据的通用语法：</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql"><span class="token keyword">SELECT</span> field1<span class="token punctuation">,</span> field2<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>fieldN 
+<span class="token keyword">FROM</span> table_name
+<span class="token keyword">WHERE</span> field1 <span class="token operator">LIKE</span> condition1
+</pre><pre data-role="codeBlock" data-info="sql" class="language-sql">e<span class="token punctuation">.</span>g<span class="token punctuation">.</span> 
+mysql<span class="token operator">&gt;</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> class_1 <span class="token keyword">where</span> name <span class="token operator">like</span> <span class="token string">'A%'</span><span class="token punctuation">;</span>
+</pre><p>mysql中对正则表达式的支持有限，只支持部分正则元字符</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql"><span class="token keyword">SELECT</span> field1<span class="token punctuation">,</span> field2<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>fieldN 
+<span class="token keyword">FROM</span> table_name
+<span class="token keyword">WHERE</span> field1 <span class="token operator">REGEXP</span> condition1
+</pre><pre data-role="codeBlock" data-info="sql" class="language-sql">e<span class="token punctuation">.</span>g<span class="token punctuation">.</span> 
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> class_1 <span class="token keyword">where</span> name <span class="token operator">regexp</span> <span class="token string">'B.+'</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="%E6%8E%92%E5%BA%8F">排序</h4>
+
+<p>ORDER BY 子句来设定你想按哪个字段哪种方式来进行排序，再返回搜索结果。</p>
+<p>使用 ORDER BY 子句将查询数据排序后再返回数据：</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql"><span class="token keyword">SELECT</span> field1<span class="token punctuation">,</span> field2<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>fieldN <span class="token keyword">from</span> table_name1 <span class="token keyword">where</span> field1
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> field1 <span class="token punctuation">[</span><span class="token keyword">ASC</span> <span class="token punctuation">[</span><span class="token keyword">DESC</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+</pre><p>默认情况ASC表示升序，DESC表示降序</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> class_1 <span class="token keyword">where</span> sex<span class="token operator">=</span><span class="token string">'m'</span> <span class="token keyword">order</span> <span class="token keyword">by</span> age<span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="%E5%88%86%E9%A1%B5">分页</h4>
+
+<p>LIMIT 子句用于限制由 SELECT 语句返回的数据数量 或者 UPDATE,DELETE语句的操作数量</p>
+<p>带有 LIMIT 子句的 SELECT 语句的基本语法如下：</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql"><span class="token keyword">SELECT</span> column1<span class="token punctuation">,</span> column2<span class="token punctuation">,</span> columnN 
+<span class="token keyword">FROM</span> table_name
+<span class="token keyword">WHERE</span> field
+<span class="token keyword">LIMIT</span> <span class="token punctuation">[</span>num<span class="token punctuation">]</span>
+</pre><h4 class="mume-header" id="%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2">联合查询</h4>
+
+<p>UNION 操作符用于连接两个以上的 SELECT 语句的结果组合到一个结果集合中。多个 SELECT 语句会删除重复的数据。</p>
+<p>UNION 操作符语法格式：</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql"><span class="token keyword">SELECT</span> expression1<span class="token punctuation">,</span> expression2<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> expression_n
+<span class="token keyword">FROM</span> <span class="token keyword">tables</span>
+<span class="token punctuation">[</span><span class="token keyword">WHERE</span> conditions<span class="token punctuation">]</span>
+<span class="token keyword">UNION</span> <span class="token punctuation">[</span><span class="token keyword">ALL</span> <span class="token operator">|</span> <span class="token keyword">DISTINCT</span><span class="token punctuation">]</span>
+<span class="token keyword">SELECT</span> expression1<span class="token punctuation">,</span> expression2<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> expression_n
+<span class="token keyword">FROM</span> <span class="token keyword">tables</span>
+<span class="token punctuation">[</span><span class="token keyword">WHERE</span> conditions<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</pre><blockquote>
+<p>expression1, expression2, ... expression_n: 要检索的列。<br>
+tables: 要检索的数据表。<br>
+WHERE conditions: 可选， 检索条件。<br>
+DISTINCT: 可选，删除结果集中重复的数据。默认情况下 UNION 操作符已经删除了重复数据，所以 DISTINCT 修饰符对结果没啥影响。<br>
+ALL: 可选，返回所有结果集，包含重复数据。<br>
+要求查询的字段必须相同</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="sql" class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> class_1 <span class="token keyword">where</span> sex<span class="token operator">=</span><span class="token string">'m'</span> <span class="token keyword">UNION</span> <span class="token keyword">ALL</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> class_1 <span class="token keyword">where</span> age <span class="token operator">&gt;</span> <span class="token number">9</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2">多表查询</h4>
+
+<p>多个表数据可以联合查询，语法格式如下</p>
+<pre data-role="codeBlock" data-info="sql" class="language-sql"><span class="token keyword">select</span>  字段<span class="token number">1</span><span class="token punctuation">,</span>字段<span class="token number">2.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">from</span> 表<span class="token number">1</span><span class="token punctuation">,</span>表<span class="token number">2.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">[</span><span class="token keyword">where</span> 条件<span class="token punctuation">]</span>
+</pre><pre data-role="codeBlock" data-info="sql" class="language-sql">e<span class="token punctuation">.</span>g<span class="token punctuation">.</span>
+<span class="token keyword">select</span> class_1<span class="token punctuation">.</span>name<span class="token punctuation">,</span>class_1<span class="token punctuation">.</span>age<span class="token punctuation">,</span>class_1<span class="token punctuation">.</span>sex<span class="token punctuation">,</span>interest<span class="token punctuation">.</span>hobby <span class="token keyword">from</span> class_1<span class="token punctuation">,</span>interest <span class="token keyword">where</span> class_1<span class="token punctuation">.</span>name <span class="token operator">=</span> interest<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD">数据备份</h3>
+
+<ol>
+<li>备份命令格式</li>
+</ol>
+<blockquote>
+<p>mysqldump -u用户名 -p 源库名 &gt; ~/***.sql</p>
+<blockquote>
+<p>--all-databases  备份所有库<br>
+库名             备份单个库<br>
+-B 库1 库2 库3   备份多个库<br>
+库名 表1 表2 表3 备份指定库的多张表</p>
+</blockquote>
+</blockquote>
+<ol start="2">
+<li>恢复命令格式</li>
+</ol>
+<blockquote>
+<p>mysql -uroot -p 目标库名 &lt; ***.sql<br>
+从所有库备份中恢复某一个库(--one-database)</p>
+<blockquote>
+<p>mysql -uroot -p --one-database 目标库名 &lt; all.sql</p>
+</blockquote>
+</blockquote>
+<h2 class="mume-header" id="python%E6%93%8D%E4%BD%9Cmysql%E6%95%B0%E6%8D%AE%E5%BA%93">Python操作MySQL数据库</h2>
+
+<h3 class="mume-header" id="pymysql%E5%AE%89%E8%A3%85">pymysql安装</h3>
+
+<blockquote>
+<p>sudo pip3 install pymysql</p>
+</blockquote>
+<h3 class="mume-header" id="pymysql%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B">pymysql使用流程</h3>
+
+<ol>
+<li>建立数据库连接(db = pymysql.connect(...))</li>
+<li>创建游标对象(c = db.cursor())</li>
+<li>游标方法: c.execute("insert ....")</li>
+<li>提交到数据库 : db.commit()</li>
+<li>关闭游标对象 ：c.close()</li>
+<li>断开数据库连接 ：db.close()</li>
+</ol>
+<h4 class="mume-header" id="%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0">常用函数</h4>
+
+<blockquote>
+<p>db = pymysql.connect(参数列表)</p>
+<blockquote>
+<p>host ：主机地址,本地 localhost<br>
+port ：端口号,默认3306<br>
+user ：用户名<br>
+password ：密码<br>
+database ：库<br>
+charset ：编码方式,推荐使用 utf8</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>数据库连接对象(db)的方法</p>
+<blockquote>
+<p>db.close() 关闭连接<br>
+db.commit() 提交到数据库执行<br>
+db.rollback() 回滚<br>
+cur = db.cursor() 返回游标对象,用于执行具体SQL命令</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>游标对象(cur)的方法</p>
+<blockquote>
+<p>cur.execute(sql命令,[列表]) 执行SQL命令<br>
+cur.close() 关闭游标对象<br>
+cur.fetchone() 获取查询结果集的第一条数据 (1,100001,"河北省")<br>
+cur.fetchmany(n) 获取n条 ((记录1),(记录2))<br>
+cur.fetchall() 获取所有记录</p>
+</blockquote>
+</blockquote>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

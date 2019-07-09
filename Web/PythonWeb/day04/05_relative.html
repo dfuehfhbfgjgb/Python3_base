@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Relative</title>
+    <style>
+        body{
+            /*position:relative;*/
+            border:1px solid blue;
+
+
+        }
+        #box{
+            width:500px;
+
+            background:orange;
+            margin:50px auto;
+            position:relative;
+        }
+        #d1{
+            width:200px;
+            height:200px;
+            background:red;
+            /*
+            position:relative;
+            bottom:50px;
+            right:50px;*/
+            position:absolute;
+            top:8px;
+            left:8px;
+        }
+        .clear{
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="d1"></div>
+        <div class="clear"></div>
+    </div>
+</body>
+</html>

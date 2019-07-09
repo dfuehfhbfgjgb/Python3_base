@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面秒表</title>
+</head>
+<body>
+    <button id="btStart">开始</button>
+    <span id="spanHour" length="2">00</span>:
+    <span id="spanMinute" length="2">00</span>:
+    <span id="spanSecond" length="2">00</span>.
+    <span id="spanMilli" length="3">000</span>    
+    <button id="btStop">停止</button>
+    <button id="btClear">清除</button>
+    <p id="pRecord"></p>
+    <script>
+        //控制字符显示长度，不足在字符前面补0
+        function fn(num,length){
+            return (Array(length).join('0')+num).slice(-length);
+        }
+        var arr=[]
+        function count(total_ms){
+            
+            var ms=total_ms%1000;
+            var s=parseInt(total_ms/1000)%60;
+            var m=parseInt(total_ms/1000/60)%60;
+            var h=parseInt(total_ms/1000/60/60)%24;
+            arr[0]=h;
+            arr[1]=m;
+            arr[2]=s;
+            arr[3]=ms;
+            //return arr
+        }
+
+        btStart.onclick=function(){
+            var start=new Date();
+            var timer= setInterval(function(){
+                var now=new Date();
+                var re=now-start;
+                count(re);
+                //console.log(re);
+                spanHour.innerHTML=fn(arr[0],2);
+                spanMinute.innerHTML=fn(arr[1],2);
+                spanSecond.innerHTML=fn(arr[2],2);
+                spanMilli.innerHTML=fn(arr[3],3);
+            }, 1);
+            
+            //console.log(now);
+
+           //取消周期性定时器
+            btStop.ondblclick=function(){
+                clearInterval(timer);
+            }
+            var rec='';
+            var i=0;
+            btStop.onclick=function(){
+                rec+=fn(++i,2)+'. '+fn(arr[0],2)+':'+fn(arr[1],2)+':'+
+                fn(arr[2],2)+'.'+fn(arr[3],3)+'<br>';
+                pRecord.innerHTML=rec;
+            }
+        }                  
+        //清屏
+        btClear.onclick=function(){
+            spanHour.innerHTML=fn(0,2);
+            spanMinute.innerHTML=fn(0,2);
+            spanSecond.innerHTML=fn(0,2);
+            spanMilli.innerHTML=fn(0,3);
+            pRecord.innerHTML='';
+
+        }
+        
+        
+
+
+
+    </script>
+</body>
+</html>

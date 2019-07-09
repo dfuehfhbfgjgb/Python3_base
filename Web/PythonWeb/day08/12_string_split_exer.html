@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StringExer</title>
+</head>
+<body>
+    <input id="inputCode">
+    <button id='btCode'>分割</button>
+    <p id="pResult">显示结果</p>
+    <script>
+        btCode.onclick=function(){
+            var s=inputCode.value;
+            var res=s.split('');
+            console.log(res);
+            pResult.innerHTML=res;
+            
+            
+        }
+        
+    </script>
+</body>
+</html>

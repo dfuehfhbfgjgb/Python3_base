@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	//声明变量
+	var a = 10; 
+	var b;
+	b = 100;
+	var a1 = 20,a2 = 30,a3 = 50;
+	var b1,b2,b3;
+	b1 = "10";
+	b2 = "20";
+	//变量声明时可以省略关键字var,一旦省略关键字，一律为全局变量
+	age = 20;
+	//变量声明未赋值,默认为undefined
+	var username;
+	console.log(username);
+	//访问未声明，未赋值的变量,报错
+	//console.log(n);//报错not defined
+	console.log(num);//undefined
+	//变量提升，浏览器在执行JS代码之前会检索所有的var关键字，只要在程序中有变量的声明，就不会报错，默认为undefined
+	var num = 1000;
+
+
+	//常量
+	const PI = 3.14;
+	console.log(PI);
+	//PI = 3.14;
+	//定义变量，表示半径，计算周长和面积
+	var r = 10;
+	var len =  2 * PI * r;
+	var s = PI * r * r;
+	//保留n位小数位 toFixed(n)
+	len = len.toFixed(2);
+	console.log(len,s);
+	var n1 = 12.35;
+	n1 = n1.toFixed(1);
+	console.log(n1);
+
+
+
+
+
+
+  
+  
+  
+  </script>
+ </head>
+ <body>
+	
+ </body>
+</html>

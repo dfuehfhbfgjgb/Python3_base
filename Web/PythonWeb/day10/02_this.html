@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This</title>
+    <script src="index.js"></script>
+    <script>
+        function f1(){
+            console.log(this)
+        };
+        window.f1();
+    </script>
+    <style>
+        ul,ol{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            width: 200px;
+            background: orange;
+            /* 调整鼠标在元素上的形状pointer：手指，default：箭头 */
+            cursor: default;
+        }
+        ol{
+            background: pink;
+            display: none;
+        }
+        ul li:first-child:hover ol{
+            /* background: yellow */
+            display: block;
+        }
+        ol li:hover{
+            /* display: none; */
+            background: red;
+        }
+    </style>
+    
+</head>
+<body>
+    <ul>
+        <li>
+            <span>北京</span>
+            <ol>
+                <li>淮滨</li>
+                <li>上海</li>
+                <li>广州</li>
+                <li>深圳</li>
+            </ol>
+        </li>
+    </ul>
+    <script>
+            //获取元素
+            var span = $('span');
+            var lis = $('ol').children;
+            for (var i in lis){
+                console.log(i);
+                lis[i].onclick = function (){
+                    //传值
+                    span.innerHTML=this.innerHTML;
+                    /*span.innerHTML=lis[i].innerHTML;
+                    此种写法取不到想要的元素,点击事件触发时，循环已经执行完毕
+                    i保存的是最终值4，因此取不到元素。*/
+                };
+            }
+            console.log(i);
+            /*lis[0].ondbclick = function (){
+                console.log(lis[0].innerHTML,this.innerHTML);
+            };*/
+        </script>
+</body>
+</html>

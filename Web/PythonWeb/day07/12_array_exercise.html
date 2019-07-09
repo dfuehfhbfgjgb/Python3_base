@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student</title>
+</head>
+<body>
+    <ul id="ulScore">
+        <!-- <li></li>
+        <li></li> -->
+    </ul>
+    <script>
+        var scores=[666,555,745];
+        console.log(scores);
+        for (i=0;i<scores.length;i++){
+            scores[i]+=5;
+        }
+        var html='';
+        for (i=0;i<scores.length;i++){
+            //console.log(scores[i]);
+            html+='<li>'+scores[i]+'</li>'
+        }
+        ulScore.innerHTML=html;
+        scores[scores.length]=739;
+        scores[scores.length]=688;
+        console.log(scores);
+        //
+        scores.forEach(function(value,index){
+            console.log("处理每一个元素");
+            console.log(value,index);
+        });
+    </script>
+</body>
+</html>

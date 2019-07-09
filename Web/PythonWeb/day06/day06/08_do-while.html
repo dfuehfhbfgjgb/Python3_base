@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	var a = 10;
+	while(a < 16){
+		console.log("while:",a);
+		a++;
+	}
+	while(a < 16){//a = 16条件不成立
+		console.log("while2:",a);
+		a++;
+	}
+	//先执行循环体，再判断条件是否成立，决定是否开启下一次循环
+	do{
+		console.log("do-while",a);
+		a++;
+	}while(a < 16);
+
+	var i = 101;
+	while(i < 101){
+		console.log(i);
+		i++;
+	}
+	do{
+		console.log("do-i:",i);
+		i++;
+	}while(i < 101);
+	
+  
+  
+  
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

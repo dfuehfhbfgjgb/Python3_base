@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UserTable</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h2>进制转换器</h2>
+    <input id="inputNum">
+    <button id="btBin">十进制转二进制</button>
+    <button id="btOct">十进制转八进制</button>
+    <button id="btXct">十进制转十六进制</button>
+    <p id="pResult">转换结果...</p>
+    <script>
+        //转二进制
+        btBin.onclick=function(){
+            //获取输入
+            var num=Number(inputNum.value);
+            //计算
+            var arr=[];
+            while (num>0){
+                var re =num%2;
+                arr.unshift(re);
+                num=parseInt(num/2);
+            }
+            
+            var res=arr.join('');
+            //结果在网页显示 
+            pResult.innerHTML=res;
+           
+        }
+        //转八进制
+        btOct.onclick=function(){
+            //获取输入
+            var num=Number(inputNum.value);
+            //计算
+            var arr=[];
+            while (num>0){
+                var re =num%8;
+                arr.unshift(re);
+                num=parseInt(num/8);
+            }
+            
+            var res=arr.join('');
+            //结果在网页显示 
+            pResult.innerHTML=res;
+        }
+        //转十六进制
+        btXct.onclick=function(){
+            //获取输入
+            var num=Number(inputNum.value);
+            //计算
+            var arr=[];
+            while (num>0){
+                var re =num%16;
+                switch(re){
+                    case 10:
+                        arr.unshift('a');
+                        break;
+                    case 11:
+                        arr.unshift('b');
+                        break;
+                    case 12:
+                        arr.unshift('c');
+                        break;
+                    case 13:
+                        arr.unshift('d');
+                        break;
+                    case 14:
+                        arr.unshift('e');
+                        break;
+                    case 15:
+                        arr.unshift('f');
+                        break;
+                    default:
+                        arr.unshift(re);
+
+                }
+                
+                num=parseInt(num/16);
+            }
+            
+            var res=arr.join('');
+            //结果在网页显示 
+            pResult.innerHTML=res;
+        }
+    </script>
+
+</body>
+</html>

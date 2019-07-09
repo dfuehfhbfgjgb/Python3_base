@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <script src="index.js"></script>
+    <style>
+        #banner{
+            width:1000px;
+            height:400px;
+            margin: 50px auto;
+
+        }
+        #banner img{
+            width:1000px;
+            height:400px;
+            display:none;
+        }
+        #banner img:first-child{
+            display: block;
+        }
+        
+
+    </style>
+    <script>
+        window.onload = function (){
+            //获取图片
+            var banner = $('div');
+            var imgs = banner.children;
+            var index=0;//保存图片的下标，初始为0.
+            var timer = setInterval(autoPlay,1500);
+
+            function autoPlay(){
+                //当前图片隐藏
+                imgs[index].style.display="none";
+                //更新下标
+                index++;
+                if (index==imgs.length){
+                    index=0;
+                };
+                //元素显示
+                imgs[index].style.display="block";
+                //var div = $('div');
+                //鼠标移入div停止定时器
+                banner.onmouseover = function (){
+                    clearInterval(timer);
+                };
+                //重启定时器
+                banner.onmouseout = function (){
+                    timer = setInterval(autoPlay,1500);
+                };
+            };
+            
+            
+        };
+    </script>
+</head>
+<body>
+    <div id="banner">
+        <img src="../day08/img/1.jpg" alt="">
+        <img src="../day08/img/2.jpg" alt="">
+        <img src="../day08/img/3.jpg" alt="">
+        <img src="../day08/img/4.jpg" alt="">
+        <img src="../day08/img/5.jpg" alt="">
+    </div>
+
+</body>
+</html>

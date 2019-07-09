@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job</title>
+    <script>
+        function jed_week(){
+            var year = Number(prompt("输入年:"));
+            var month = Number(prompt("输入月:"));
+            var day = Number(prompt("输入日:"));
+            var isRun=year%4==0 && year%100!=0 || year%400==0;
+            var sum=0
+            if (year >= 1900 && year < 1990){
+
+                for (var start=1900;start<=year-1;start++){
+                    if (start%4==0 && start%100!=0 || start%400==0){
+                        sum+=366;
+                    }else{
+                        sum+=365;
+                    }
+                }
+            }else if(year >= 1990){
+
+                for (var start=1990;start<=year-1;start++){
+                    if (start%4==0 && start%100!=0 || start%400==0){
+                        sum+=366;
+                    }else{
+                        sum+=365;
+                    }
+                }
+            }else{
+
+                alert("暂不支持1990年之前的时间段查询")
+                return
+            }
+            for (var i=1;i<=month-1;i++){
+                switch(i){
+                    case 1:
+                    case 3:
+                    case 5:
+                    case 7:
+                    case 8:
+                    case 10:
+                        sum+=31;
+                        break;
+                    case 2:
+                        if (isRun){
+                            sum+=29;
+
+                        }else{
+                            sum+=28;
+                        }
+                        break;
+                    case 4:
+                    case 6:
+                    case 9:
+                    case 11:
+                        sum+=30;
+                        break;
+                    default:
+                        alert("输入不合法");
+                        break;
+                }
+            }
+            sum+=day;
+            var res=sum%7-1;
+            switch (res){
+                case 0:
+                    alert("周一");
+                    break;
+                case 1:
+                    alert("周二");
+                    break;
+                case 2:
+                    alert("周三");
+                    break;
+                case 3:
+                    alert("周四");
+                    break;
+                case 4:
+                    alert("周五");
+                    break;
+                case 5:
+                    alert("周六");
+                    break;
+                case 6:
+                    alert("周日");
+                    break;
+            }
+        }
+        //var re=jed_week();
+        //console.log(re);
+    </script>
+</head>
+<body>
+    <button onclick="jed_week()">判断闰年</button>
+</body>
+</html>

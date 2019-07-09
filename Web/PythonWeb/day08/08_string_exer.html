@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StringExer</title>
+</head>
+<body>
+    <input id="inputChar">
+    <span id="spanCode">fsaf</span>
+    <button id="start">验证</button>
+    <p id="result">验证结果...</p>
+    <script>
+
+        var str='0123456789abcdefghrjklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM';
+        var l=str.length;
+        res=''
+        for (i=0;i<4;i++){
+            var index=parseInt(Math.random()*l);
+            res+=str.charAt(index);
+
+        }
+        spanCode.innerHTML=res;
+        start.onclick=function(){
+            tmp1=(inputChar.value).toLowerCase();
+            tmp2=res.toLowerCase();
+            if (tmp1==tmp2){
+                result.innerHTML='验证成功';
+            }else{
+                result.innerHTML='验证失败';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function</title>
+    <script>
+        //1.无参数无返回值的函数
+        function f1(){
+            console.log("f1被调用");
+        }
+        f1();
+        //2.带参数的函数
+        function f2(a,b){
+            var sum=a+b
+            var r = a + "+" + b + "=" + sum;
+            //console.log(a);
+            //console.log(b);
+            console.log(r);
+            //函数允许形参与实参个数不匹配
+            //函数内部变量arguments，保存实际传递过来的参数
+            console.log(arguments);
+        }
+        //实际参数
+        f2(10,20);//传参
+        f2(100);
+        f2(100,200,30)
+        //3.函数有返回值：将函数内部的结果返回给外界使用
+        //return 只能返回一个值，return后面的代码不执行
+        function f3(a){
+            if (a){
+                var r1=a+a;
+                var r2=a*a;
+                return [r1,r2];//可以使用数组返回多个值
+            }else{//undefined 或 0
+                console.log("不合法")
+                return;
+            }
+
+        }
+        var res=f3(12);
+        console.log(res);//通过数组索引取出数组内的元素
+        var res1=f3();
+        console.log(res1);
+
+        //作用域
+        var age=20;
+        function fn(){
+            //变量提升，当前作用域中使用var关键字声明
+            //变量age，浏览器执行过程中，一定使用局部变量，当前访问该变量时还未赋值
+            //所以打印结果为undefined
+            console.log(age);
+            var age=100;
+            uname="张三";//不加var声明，是全局变量，在函数体外面也可直接访问
+            var n=10;//var声明是局部变量，外部不能直接使用
+        }
+        fn();
+
+        //console.log(uname);
+        //console.log(n);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

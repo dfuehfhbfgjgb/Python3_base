@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<button id="btn2">跳转到TMOOC</button>
+	<button id="btn3">跳转到TMOOC(5s后)</button>
+
+	<script>
+		//使用匿名回调函数
+		btn2.onclick = function(){
+			//console.log('准备跳转');
+			//让当前页面的地址引用另一个地址
+			location.href = 'http://tmooc.cn';
+		}
+
+		//使用匿名回调函数  
+		btn3.onclick = function(){
+			var num = 5;
+			//设置一个间隔1s的定时任务(回调函数)
+			setInterval( function(){
+				console.log(num);
+				num--;
+			}, 1000 );
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script>
+		function f1(){
+			console.log('hello1');
+		}
+
+		//console.log(btn2);  错误
+	</script>
+</head>
+<body>
+	<button onclick="f1()">输出Hello</button>
+	
+	<button id="btn2">输出World</button>
+
+	<script>
+		//页面中已经出现了的元素，有id的话，
+		//可以直接作为全局变量使用
+		//console.log(btn2); 
+		//console.log(window.btn2);
+
+		//为按钮的单击事件指定“回调函数”
+		btn2.onclick = function(){
+			console.log('world');
+		}
+	</script>
+</body>
+</html>

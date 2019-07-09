@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	请输入验证码：
+	<input id="inputCode">
+	<span id="spanCode">a3B9</span>
+	<button id="bt">验证</button>
+	<script>
+	//生成一个四位的随机验证码，放入SPAN中
+	var pool = 'ABCDEFGHJKLMNPQRSTWXYabcdefghijkmnpqrstwx23456789';
+	var n1 = parseInt(Math.random()*pool.length);
+	var c1 = pool.charAt(n1);
+	var n2 = parseInt(Math.random()*pool.length);
+	var c2 = pool.charAt(n2);
+	var n3 = parseInt(Math.random()*pool.length);
+	var c3 = pool.charAt(n3);
+	var n4 = parseInt(Math.random()*pool.length);
+	var c4 = pool.charAt(n4);
+	var code = c1+c2+c3+c4;  //四位随机验证码
+	spanCode.innerHTML = code;
+	
+	bt.onclick = function(){
+		//获取用户的输入
+		var input = inputCode.value;
+		//比较input和code内容是否相同，忽略大小写
+		input = input.toUpperCase();
+		code = code.toUpperCase();
+		if(input===code){
+			alert('验证码输入正确');
+		}else {
+			alert('错误！请重新输入')
+		}
+	}
+	</script>
+</body>
+</html>
+
+
+

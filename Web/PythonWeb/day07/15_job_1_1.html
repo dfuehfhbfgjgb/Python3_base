@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>"十进制转二进制"</title>
+</head>
+<body>
+    
+    <script>
+        //function
+        var num=[];
+        var data=Number(prompt("请输入要转换的十进制整数"));
+        var decNum=data;
+        //decNum=(decNum/2).toFixed(0)-1;
+        while (decNum>0){
+            re=decNum%2;
+            num.unshift(re);
+            if (re){
+                decNum=(decNum/2).toFixed(0)-1;
+            }else{
+                decNum=(decNum/2).toFixed(0); //decNum.toFixed(0) 去除小数部分
+            }            
+        }
+        num.unshift('b');
+        var res=num.join('');
+        alert("十进制"+data+"转换为二进制结果为："+res);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+  /*
+	a:link{
+		color:black;
+	}
+	a:visited{
+		color:gray;
+	}
+	a:hover{
+		color:red;
+	}
+	a:active{
+		background:green;
+	}
+	*/
+
+	a{
+		background:orange;
+		color:white;
+		/*取消超链接默认下划线*/
+		text-decoration:none;
+	}
+	a:hover{
+		background:green;
+	}
+	div{
+		width:300px;
+		height:300px;
+		background:pink;
+	}
+	div:hover{
+		width:300px;
+		height:300px;
+		background:cyan;
+	}
+	input:focus{
+		/*取消输入框在焦点状态下的轮廓线*/
+		outline:none;
+	}
+	span{
+		color:red;
+	}
+	p span{
+		color:green;
+	}
+	#d1 p span{
+		color:pink;
+	}
+	#d1 span{
+		color:black;
+	}
+	.c1 p span{
+		color:cyan;
+	}
+	
+  
+  </style>
+ </head>
+ <body>
+	<a href="index.css">超链接</a>
+	<!--创建div,200*200,背景色不限，当鼠标滑过时，改尺寸300*300，改颜色-->
+	<div></div>
+	<input type="text">
+	<h1 id="d1" class="c1">
+		<p>
+			<span style="color:red;">示例文本</span>
+		</p>
+	</h1>
+ </body>
+</html>

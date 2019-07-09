@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	//var year = prompt("请输入年");
+	var year = 2000;
+	//只有"零"值为假
+	if(year){
+		//逻辑与优先级高于逻辑或
+		var res = year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);
+		console.log(res);
+	}else{
+		//year = prompt("请输入年");
+	}
+
+	//三目运算
+	var age = 20;
+	var r = age >= 18 ? "成年人" : age <= 7 ? "不用上学" : "义务教育";
+	console.log(r);
+
+
+
+
+
+
+	/*
+	//带输入框的弹框，参数为字符串，表示提示信息，返回用户输入的内容
+	var r = prompt("请输入");
+	console.log(r,typeof r);
+	*/
+
+  
+  
+  
+  
+  
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

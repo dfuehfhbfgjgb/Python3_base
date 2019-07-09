@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子元素过滤选择器</title>
+    <script src="../jquery-1.11.3.js"></script>
+    <script>
+        function show(){
+            $("div").html("<h1>"+$("input").val()+"</h1>");
+        };
+    </script>
+</head>
+<body>
+    <input type="text">
+    <button onclick="show()">按钮</button>
+    <div>显示结果</div>
+
+</body>
+</html>

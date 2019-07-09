@@ -1,0 +1,52 @@
+赵旭
+zhaoxu@tedu.cn
+
+AJAX
+
+1.什么是Ajax
+	Asynchronous Javascript And Xml
+	异步的       JS         和  Xml (JSON)
+
+	同步访问:
+		当客户端向服务器发送请求时，服务器在处理的过程中，浏览器只能等待
+	异步访问:
+		当客户端向服务器发送请求时，服务器在处理的过程中，浏览器无需等待,可以做其他操作
+
+	AJAX的优点:
+		1.异步 访问
+		2.局部 刷新
+
+	使用场合:
+		1.搜索建议
+		2.表单验证
+		3.前后端完全分离
+			SPA - Single Page Application
+2.AJAX核心对象 - 异步对象(XMLHttpRequest)
+	1.什么是XMLHttpRequest
+		简称为 xhr
+		称为 "异步对象"，代替浏览器向服务器发送异步的请求并接受响应
+	2.创建异步对象
+		xhr的创建是由js来提供的
+		主流的异步对象时XMLHttpRequest类型的，并且主流的浏览器都支持(IE7+,Chrome,Firefox,Safari,Opera),但在IE低版本下是不支持XMLHttpRequest
+		
+		支持XMLHttpRequest : 
+			通过new XMLHttpRequest()创建
+		不支持XMLHttpRequest:
+			通过new ActiveXObject("Microsoft.XMLHTTP")
+		
+		判断浏览器支持性:
+		if(window.XMLHttpRequest){
+			则说明浏览器支持 XMLHttpRequest
+		}else{
+			则说明浏览器支持 ActiveXObject("")
+		}
+
+		1.创建一个Django程序 - AjaxDemo01
+		2.创建一个网页/模板
+		3.在网页/模板中创建一个函数 - createXhr()
+		4.在函数中，创建异步对象并返回
+			到底支持XMLHttpRequest还是ActiveXObject
+
+
+
+

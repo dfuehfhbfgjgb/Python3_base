@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exer</title>
+</head>
+<body>
+    <script>
+        var prices=[123,1245,46,254,7989];
+        console.log(prices);
+        for (i=0;i<prices.length;i++){
+            prices[i]=prices[i]*0.9;
+            console.log(prices[i])
+        }
+        //找出价格最高的
+        var maxprice=prices[0];
+        for (i=1;i<prices.length;i++){
+            if (prices[i]>maxprice){
+                maxprice=prices[i]
+            }
+        }
+        console.log("MaxPrice:",maxprice)
+        //输出等于228.6的下标
+        prices.forEach(function(p,i){
+            if (p==228.6){
+                console.log(p,i);
+            }
+        })
+        //使用indexOf查找
+        var res=prices.indexOf(228.6);
+        console.log(228.6,'的下标是',res)
+        //函数式查找
+        function getIndex(elem,listing){
+            return listing.indexOf(elem);
+        }
+        var res=getIndex(90,prices);
+        console.log(90,"的下标是",res);
+        function indexOf1(arr,e){
+            index=-1;
+            arr.forEach(function(v,i){
+                if(v==e){
+                    index=i;
+                    break;
+                    //return i
+                }
+            })
+            return index;
+        }
+        var res=indexOf1(prices,41.4);
+        console.log(res);
+    </script>
+</body>
+</html>

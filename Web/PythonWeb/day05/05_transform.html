@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transform</title>
+    <script>
+        var a = 100;
+        var b = true;
+        //强制类型转换
+        //toString()
+        var s1 = a.toString();
+        var s2 = b.toString();
+        console.log(s1,typeof s1);
+        console.log(s2,typeof s2);
+        //number() 转换失败返回NaN（not a number）
+        var n1 = "12a";
+        var n2 = "120";
+        console.log(Number(n1),Number(n2));
+        console.log(Number(true),Number(false),Number("true"));
+        //parseInt(n)解析整数部分，parseFloat()解析小数部分
+        //如果参数为非字符串，将自动转换成字符串，逐位进行解析
+        //对每一位字符串进行转Number的操作，一旦解析失败，就停止向后解析，返回结果
+        console.log(parseInt(15.3));
+        console.log(parseInt("123hello"));
+        console.log(parseInt("h123"));
+        console.log(parseInt(true));
+        console.log(parseFloat(15.3));
+        console.log(parseFloat("abc15.3"));
+        console.log(parseFloat("15.3abc"));
+        console.log(parseFloat("15.3.5"));
+        //转换布尔值 Boolean（n）将变量转换布尔值：除“零”外，所有值都为真
+        //零值有：0/0.0/''/undefined/NaN/null.
+        console.log(Boolean(1));
+        console.log(Boolean(10));
+        console.log(Boolean(0));
+        console.log(Boolean(0.0));
+        console.log(Boolean(""));//空字符串，b布尔值为false
+        console.log("包含空白字符：",Boolean(" "));
+        console.log(Boolean(undefined));//false
+        console.log(Boolean(NaN));//false
+        console.log(Boolean(null));//false
+        //特殊
+        console.log(Number(undefined),Number(null));//返回值 NaN 0
+
+        //自动类型转换
+        //字符串与其他类型数据进行+运算时，一律为字符串拼接，
+        //将非字符串数据转换成字符串进行拼接
+        var r1 = 10 + 5;
+        var r2 = "10" + "5";//"105"
+        var r3 = 5 + "20";//"520"
+        var r4 = true + "20";
+        var r5 = null + "20";
+        var r6 = undefined + "20";
+        var r7 = NaN + "20";
+        var r8 = 10 + 5 + "hello";//"15hello"
+        var r9 = 10 + "hello" +5;//"10hello5"
+        console.log(r9)
+
+        var res1 = "10"-5;//10-5
+        //NaN参与数学运算，结果一律为NaN
+        var res2 = "10a" - 55;//NaN
+        var res3 = "10" - 55;
+        var res4 = "10"- true;//9
+        var res5 = "10" + false;//"10false"
+        var res6 = true + true;//2
+        /*
+        undefined+10
+        null+10
+        true+10
+        其他情况：
+            string与其他类型做非加法运算
+            number值与其他类型做数学运算
+            布尔值参与运算，一律转number*/
+        var res7 =
+
+        console.log(res6)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

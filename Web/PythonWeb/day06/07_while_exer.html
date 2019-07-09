@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WhileExer</title>
+    <script>
+        var year = Number(prompt("请输入年"));
+        var month = Number(prompt("请输入月"));
+        var day = Number(prompt("请输入日"));
+        console.log(year,"年",month,"月",day,"日.");
+        var isRun = year % 4 == 0 && year % 100 != 0 || year % 400 ==0;
+        var i = 1;
+        sum = 0;
+        while (i < month){
+            switch (i){
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                    sum += 31;
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                    sum += 30;
+                    break;
+                case 2:
+                    if (isRun){
+                        sum += 29;
+                        break;
+                    }else{
+                        sum += 28;
+                        break;
+                    }
+
+
+            }
+            i++;
+        }
+        sum+=day;
+        console.log("该日期是当年的第",sum,"天.")
+    </script>
+</head>
+<body>
+
+</body>
+</html>

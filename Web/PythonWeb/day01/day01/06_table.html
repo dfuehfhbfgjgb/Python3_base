@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+	<!--表格由结构化的行和单元格组成，用于数据的展示或辅助排版-->
+	<table border="1px" width="500px" height="500px">
+		<!--table row 创建行-->
+		<tr>
+			<!--th表示单元格，自带加粗和居中效果-->
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>班级</th>
+		</tr>
+		<tr>
+			<td>老祁</td>
+			<td>30</td>
+			<td>001</td>
+		</tr>
+		<tr>
+			<td>小泽玛利亚</td>
+			<td>32</td>
+			<td>002</td>
+		</tr>	
+	</table>
+
+	<!--单元格合并，为单元格添加属性：
+	colspan:跨列合并
+	rowspan:跨行合并
+	取无单位的数值，表示包含自身在内合并几个单元格。
+	发生单元格合并，要删除被合并的单元格以保证结构完整
+	-->
+	<table border="1px" width="300px" height="300px">
+		<tr>
+			<td colspan="2">示例</td>
+			<!--删除被合并的单元格，保证表格结构完整-->
+			<td>示例</td>
+		</tr>
+		<tr>
+			<td>示例</td>
+			<td rowspan="2">示例</td>
+			<td>示例</td>
+		</tr>
+		<tr>
+			<td>示例</td>
+			<!--删除被合并的单元格，保证结构完整-->
+			<td>示例</td>
+		</tr>
+
+	</table>
+
+	<!--表格行分组：
+		可将表格中的若干行划分为一组，表示表头，表尾和表格主体
+		默认情况下，所有的行都会自动添加到tbody（表格主体）中显示
+	-->
+	<table border="1px" width="300px" height="300px">
+		<!--thead划分表头-->
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+			</tr>
+		</thead>
+		<!--tfoot-->
+		<tfoot>
+			<tr>
+				<td colspan="2">合计：</td>	
+			</tr>
+		</tfoot>
+		<!--tbody-->
+		<tbody>
+			<tr>
+				<td>LQ</td>
+				<td>30</td>
+			</tr>
+			<tr>
+				<td>LQ</td>
+				<td>30</td>
+			</tr>
+		</tbody>
+	
+	
+	
+	</table>
+
+
+
+ </body>
+</html>

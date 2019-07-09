@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setAttr</title>
+    <script src='index.js'></script> 
+</head>
+<body>
+    <h1>属性操作</h1>
+    <script>
+        //给标签添加属性
+        var h1=$('h1');
+        //var h1 = document.getElementsByTagName('h1');
+        h1.id="d1";
+        //h1.name="info";
+        h1.className='c1 c2';
+        console.log(h1.id,h1.className);
+        //移除标签属性，属性设为空即可
+        h1.id='';
+        h1.className=null;
+        h1.setAttribute("id","box");
+        console.log(h1.getAttribute("id"))
+        //修改类名
+        h1.setAttribute("class","c3"); //添加标签属性
+        console.log(h1.getAttribute("class")) //获取标签属性
+        h1.removeAttribute("id"); //移除标签属性
+        console.log(h1.getAttribute("id"))
+    </script>
+</body>
+</html>

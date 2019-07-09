@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Load01</title>
+    <script src="/static/jquery-1.11.3.js"></script>
+    <script>
+        $(function () {
+            $('#btnLoad').click(function () {
+                //1.通过字符串表示参数
+                {#var params = "uname=laodu&uage=18";#}
+                //2.通过JS对象表示参数
+                var params = {
+                    uname:'laodu',
+                    uage:18,
+                    csrfmiddlewaretoken:$
+                    ("[name='csrfmiddlewaretoken']").val()
+                }
+
+                $('#baidu').load("/ajax/01-server/",params,function () {
+                    window.setTimeout(function () {
+                        //hide（3000）3秒钟之内将元素隐藏
+                        $("#baidu").hide(3000)
+                    },5000);
+                });
+            });
+        });
+    </script>
+    <style>
+        a{
+            text-decoration: none;
+            color:darkgray;
+        }
+        a:hover{
+            color:black;
+        }
+        li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    {% csrf_token %}
+    <button id="btnLoad">加载01-server</button>
+    <div id="baidu"></div>
+</body>
+</html>

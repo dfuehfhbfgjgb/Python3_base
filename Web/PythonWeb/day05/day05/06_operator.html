@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	var a = 10;
+	a ++;
+	++ a;
+	console.log(a);
+	var b = "10";
+	b += 1;//b = b + 1
+	console.log(b);//"101"
+	//包含自动类型转换，转成number进行值的+1或-1
+	b ++;
+	console.log(b);//102
+	var c = 10;
+	var r1 = c ++;//r1? c?
+	console.log("r1:",r1,"c:",c);//10 11
+	var r2 = ++ c;//r2? c?
+	console.log("r2:",r2,"c:",c);//12 12
+
+	var n = 10;
+	var r3 = n --;//r3 = 10,n = 9
+	var r4 = -- n;//r4 = 8,n = 8
+	console.log(r3,r4,n);
+
+	//关系运算
+	var res1 = "a" > "b";//Unicode码值的比较,97>98
+	console.log(res1);
+	var res2 = "1" > "10";//比较编码值
+	console.log(res2);
+	var res3 = "2" > "10";
+	console.log(res3);
+	//其他情况一律转number
+	var res4 = 100 > 10;
+	var res5 = "100" > 10;//100 > 10
+	var res6 =  "100" > true;//100 > 1
+	var res7 = "hello" > true;//NaN > 1
+	var res8 = "10" > null;//10 > 0
+	var res9 = true > false;
+
+	var r1 = "10" == 10; //true
+	var r2 = "10" === 10;//false
+
+
+
+
+
+
+	
+
+  
+  
+  
+  
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

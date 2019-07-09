@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <script src="../js/jquery-1.11.3.js"></script>
+    <link rel="stylesheet" href="../css/base.css"
+     type="text/css">
+    <link rel="stylesheet" href="../css/cart.css"
+     type="text/css">
+    <script src="../js/cart.js"></script>
+    
+    
+</head>
+<body>
+    <div id="top">
+        <div class="search-nav">
+            <img class="logo" src="../images/header/logo.png">
+            <div class="middle">
+                <input type="text">
+                <img src="../images/header/search.png">
+            </div>
+            <ul>
+                <li>
+                    <a href="">
+                        <img src="../images/header/care.png">
+                    </a>
+                    <b>|</b>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="../images/header/order.png">
+                    </a>
+                    <b>|</b>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="../images/header/shop_car.png">
+                    </a>
+                    <b>|</b>
+                </li>
+                <li>
+                    <a href="">登录</a> 
+                    <b>|</b>            
+                </li>
+                <li>
+                    <a href="">帮助</a>                    
+                </li>
+            </ul>
+        </div>
+        <div class="nav">
+            <a href="">首页</a>
+            <a href="">私人订制</a>
+        </div>
+    </div>
+    <div id="main">
+        <!-- 购物车的顶部标题 -->
+        <h2>
+            购物车
+            <p>
+                <span>
+                    已选择：
+                    <b class="total-num">0</b>
+                    件商品
+                </span>
+                <span>
+                    共计：
+                    <b class="total-price">0.00</b>
+                    元
+                </span>
+            </p>
+        </h2>
+        <!-- 购物车商品展示 -->
+        <div class="info">
+            <!-- 顶部工具栏 -->
+            <div class="type">
+                <div class="check">
+                    <img 
+                    src="../images/cart/product_normal.png"
+                     class="checkAll">全选
+                </div>
+                <div class="gname">商品</div>
+                <div class="gprice">单价(元)</div>
+                <div class="gcount">数量</div>
+                <div class="gsum">金额</div>
+                <div class="action">操作</div>
+            </div>
+            <!-- 商品展示 -->
+            <div class="content">
+                <!-- 商品记录 -->
+                <div class="item">
+                    <div class="check">
+                        <img 
+                        src="../images/cart/product_normal.png"
+                        class="checkItem">
+                    </div>
+                    <div class="gname">
+                        <img src=
+                        "../images/cart/product_simg1.png">
+                        <p>
+                            90分旅行箱介绍
+                        </p>
+                        <p>规格：20寸</p>
+                        <p>颜色：星空灰</p>
+                    </div>
+                    <div class="gprice">
+                        <h3>皮粉专享价</h3>
+                        <p>&yen; 299.00</p>
+                    </div>
+                    <div class="gcount">
+                        <!-- 阻止超链接默认事件 -->
+                        <a href="javascript:void(0)"
+                         class="minus">-</a>
+                        <input type="text" value="1">
+                        <a href="javascript:void(0)"
+                         class="add">+</a>
+                    </div>
+                    <div class="gsum">
+                        <p>￥299.00</p>
+                    </div>
+                    <div class="action">移除</div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="item">
+                    <div class="check">
+                        <img 
+                        src="../images/cart/product_normal.png"
+                        class="checkItem">
+                    </div>
+                    <div class="gname">
+                        <img src=
+                        "../images/cart/product_simg1.png">
+                        <p>
+                            90分旅行箱介绍
+                        </p>
+                        <p>规格：20寸</p>
+                        <p>颜色：星空灰</p>
+                    </div>
+                    <div class="gprice">
+                        <h3>皮粉专享价</h3>
+                        <p>&yen; 299.00</p>
+                    </div>
+                    <div class="gcount">
+                        <!-- 阻止超链接默认事件 -->
+                        <a href="javascript:void(0)"
+                            class="minus">-</a>
+                        <input type="text" value="1">
+                        <a href="javascript:void(0)"
+                            class="add">+</a>
+                    </div>
+                    <div class="gsum">
+                        <p>￥299.00</p>
+                    </div>
+                    <div class="action">移除</div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="item">
+                    <div class="check">
+                        <img 
+                        src="../images/cart/product_normal.png"
+                        class="checkItem">
+                    </div>
+                    <div class="gname">
+                        <img src=
+                        "../images/cart/product_simg1.png">
+                        <p>
+                            90分旅行箱介绍
+                        </p>
+                        <p>规格：20寸</p>
+                        <p>颜色：星空灰</p>
+                    </div>
+                    <div class="gprice">
+                        <h3>皮粉专享价</h3>
+                        <p>&yen; 299.00</p>
+                    </div>
+                    <div class="gcount">
+                        <!-- 阻止超链接默认事件 -->
+                        <a href="javascript:void(0)"
+                            class="minus">-</a>
+                        <input type="text" value="1">
+                        <a href="javascript:void(0)"
+                            class="add">+</a>
+                    </div>
+                    <div class="gsum">
+                        <p>￥299.00</p>
+                    </div>
+                    <div class="action">移除</div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="item">
+                    <div class="check">
+                        <img 
+                        src="../images/cart/product_normal.png"
+                        class="checkItem">
+                    </div>
+                    <div class="gname">
+                        <img src=
+                        "../images/cart/product_simg1.png">
+                        <p>
+                            90分旅行箱介绍
+                        </p>
+                        <p>规格：20寸</p>
+                        <p>颜色：星空灰</p>
+                    </div>
+                    <div class="gprice">
+                        <h3>皮粉专享价</h3>
+                        <p>&yen; 299.00</p>
+                    </div>
+                    <div class="gcount">
+                        <!-- 阻止超链接默认事件 -->
+                        <a href="javascript:void(0)"
+                            class="minus">-</a>
+                        <input type="text" value="1">
+                        <a href="javascript:void(0)"
+                            class="add">+</a>
+                    </div>
+                    <div class="gsum">
+                        <p>￥299.00</p>
+                    </div>
+                    <div class="action">移除</div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div id="bottom"></div>
+
+</body>
+</html>

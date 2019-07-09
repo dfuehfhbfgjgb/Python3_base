@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <script>
+        $(function () {
+            $("#show").click(function () {
+                var xhr = createXhr();
+                xhr.open("get","/users/json_server",true);
+                xhr.onreadystatechange = function () {
+                    if(xhr.readyState == 4 && xhr.status == 200){
+                        var msg = xhr.responseText;
+
+                        // var temp=JSON.parse(msg);
+                        var users=JSON.parse(msg);
+
+                        html='';
+                        for (var i=0;i<users.length;i++){
+                            html += '<tr>';
+                            html += "<td>"+users[i].pk+"</td>";
+                            html += "<td>"+users[i].fields.uname+"</td>";
+                            html += "<td>"+users[i].fields.upwd+"</td>";
+                            html += "<td>"+users[i].fields.nickname+"</td>";
+                            html += "</tr>";
+                        }
+
+
+                        $('#content').html(html);
+
+                    }
+                };
+                xhr.send(null);
+            });
+            $("#showJSON").click(function () {
+                var xhr = createXhr();
+                xhr.open('get','/users/user_server',true);
+                xhr.onreadystatechange = function () {
+                    if(xhr.readyState == 4 && xhr.status == 200){
+                        //1.接收响应回来的数据
+                        var msg = xhr.responseText;
+                        //2.接接收的数据转换为js对象
+                        var users=JSON.parse(msg);
+                        console.log(users);
+                        //3.解析数据：循环遍历显示结果
+                        html = '';
+                        $(users).each(function (i,obj) {
+                            html += '<tr>';
+                            html += "<td>"+obj.pk+"</td>";
+                            html += "<td>"+obj.fields.uname+"</td>";
+                            html += "<td>"+obj.fields.upwd+"</td>";
+                            html += "<td>"+obj.fields.nickname+"</td>";
+                            html += "</tr>";
+                        })
+                        $("#content").html(html);
+                    }
+                }
+                xhr.send(null);
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="show">显示</button>
+    <button id="showJSON">显示JSON</button>
+    <table width="400" border="1">
+        <tr>
+            <th>ID</th>
+            <th>用户名</th>
+            <th>密码</th>
+            <th>昵称</th>
+        </tr>
+        <tbody id="content">
+
+        </tbody>
+    </table>
+</body>
+</html>

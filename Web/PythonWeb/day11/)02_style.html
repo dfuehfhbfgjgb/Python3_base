@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery_style</title>
+    <script src="../jquery-1.11.3.js"></script>
+    <!-- <script src="index.js"></script> -->
+    <style>
+        #d1{
+            font-size: 32px;
+        }
+        .c1{
+            font-weight: 700;
+        }
+        .c2{
+            color: aqua;
+        }
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <p>老杜爱Python</p>
+    <span>老杜进局子</span>
+    <label>label</label>
+    <button onclick="show()">按钮</button>
+    <div></div>
+    <script>
+        //操作行内样式
+        $("div").css("height","200px")
+        .css("border","1px solid red")
+        .css("margin","0px").css("padding","0px")
+        .css({
+            "background":"pink",
+            "width":"200px",
+        });
+        $("p").attr("id","d1").prop("class","c1 c2");
+        $("span").attr("class","c1").addClass("c2");
+        $("label").addClass("c1").addClass("c2")
+        .removeClass("c2");
+        function show(){
+            $("label").toggleClass("c1 c2")
+        };
+    </script>      
+</body>
+</html>

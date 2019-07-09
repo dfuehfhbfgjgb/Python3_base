@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+	<!--form元素负责将表单数据按照指定的提交地址（action）和提交方式（method）发送给服务器.
+	1.提交方式默认为get,将表单中的数据以参数的形式拼接在url后面（?key1=value1&key2=value2）
+	2.post方式提交数据会将数据封装在请求体中传输，安全性更高；如果涉及二进制数据提交（图片，文件或音视频）只能使用post方式提交，并且设置数据的编码类型为multipart/form-data
+	
+	-->
+	<form action="/login" method="get" enctype="">
+		<!--表单控件用于采集用户信息，只能放在form中使用，数据才会被提交-->
+		
+		<!--
+		type:必填，指定控件类型
+		name:必填，指定控件名称（key）
+		placeholder：设置提示文本
+		maxlength：设置最大输入字符数
+		readonly:不需要取值，设置输入框只读
+		value:设置控件的值（value）
+		checked:设置按钮默认选中
+		-->
+		<p>
+			用户姓名：
+			<input type="text" name="uname" placeholder="请输入用户名" value="zs">
+		</p>
+		<p>
+			用户密码：
+			<input type="password" name="upwd">
+		</p>
+		<p>
+			用户性别：
+			<!--一组按钮的控件名称必须保持一致，按钮中必须设置value-->
+			<input type="radio" name="gender" value="boy" checked="checked">男
+			<input type="radio" name="gender" value="girl">女
+		</p>
+		<!--label for id实现文本与控件的绑定-->
+		<p>
+			兴趣爱好：
+			<input id="dance" type="checkbox" name="hobby" value="dance">
+			<label for="dance">蹦迪</label>
+
+			<input type="checkbox" name="hobby" value="rap" id="rap">
+			<label for="rap">rap<label>
+
+			<input type="checkbox" name="hobby" value="spa" checked>保健
+		</p>
+		<!--文件选择框:二进制数据必须使用post方式并且修改编码类型-->
+		<p>
+			用户头像：
+			<input type="file" name="uimg">	
+		</p>
+		<!--隐藏域:发送当前页面的附加信息，对用户而言不可见，服务器必需的数据可以使用隐藏域提交-->
+		<p>
+			<input type="hidden" name="uid" value="001">
+		</p>
+		<!--下拉菜单-->
+		<p>
+			所在地址：
+			<select name="city">
+				<option value="bj">北京</option>
+				<option value="sh">上海</option>
+				<option value="gz">广州</option>
+				<option value="sz">深圳</option>
+			</select>
+		</p>
+		<p>
+			个人介绍：
+			<!--多行文本域：允许用户手动调整尺寸，支持多行输入-->
+			<textarea name="uinfo"></textarea>
+		</p>
+
+		<!--功能按钮：提交，重置，普通按钮，可以使用value属性设置按钮的显示文本-->
+
+		<!--提交按钮，点击时将数据发送服务器-->
+		<input type="submit" value="注册">
+		<input type="reset" value="清空">
+		<input type="button" value="点击">		
+	<!--
+		file:///C:/login?
+		uname=zs
+		&upwd=123
+		&gender=girl
+		&hobby=dance&hobby=rap&hobby=spa
+		&uimg=index_banner3.jpg
+		&uid=001
+		&city=gz
+		&uinfo=123123
+	-->
+		<!--button标签表示按钮，标签内容即为按钮的显示文本，书写在form中，等价于提交按钮，书写在form外，就是普通按钮，需要自定义点击处理-->
+		<button>form内</button>
+	</form>
+	<button>form外</button>
+ </body>
+</html>

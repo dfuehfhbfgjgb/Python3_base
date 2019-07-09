@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FloatInline</title>
+    <style>
+        #box{
+            width:500px;
+            height:500px;
+            background:orange;
+        }
+        span{
+            /*float:left;*/
+            width:200px;
+            height:200px;
+            background:red;
+        }
+        #d1{
+            margin-right:20px;
+            float:left;
+            width:200px;
+            height:200px;
+            background:green;
+        }
+        /*p{
+            float:left;
+            width:200px;
+            height:200px;
+            background:green;
+        }*/
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="d1"></div>
+        <span>示例文本</span>
+        <p>content-box 为元素设置的width/height指定的是内容框的大小
+            计算尺寸：各个属性值累加计算
+            width/height+boder+padding+margin
+            border-box 为元素设置的是width/height指定的是包含边框的大小
+            计算尺寸：width/height+margincontent-box 为元素设置的width/height指定的是内容框的大小
+            计算尺寸：各个属性值累加计算
+            width/height+boder+padding+margin
+            border-box 为元素设置的是width/height指定的是包含边框的大小
+            计算尺寸：width/height+margincontent-box 为元素设置的width/height指定的是内容框的大小
+            计算尺寸：各个属性值累加计算
+            width/height+boder+padding+margin
+            border-box 为元素设置的是width/height指定的是包含边框的大小
+            计算尺寸：width/height+margin</p>
+
+
+    </div>
+</body>
+</html>

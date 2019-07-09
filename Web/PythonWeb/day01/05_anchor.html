@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus">
+    <meta name="Xutao" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>超链接</title>
+</head>
+<body>
+    <!--用户可以点击超链接，跳转至其他的资源文件-->
+    <!--href 属性必填，用于指定链接地址
+    网络路径必须写协议 如http-->
+    <!--target属性选项，用于设置目标文件的打开方式，默认在当前窗口打开
+    也可以新建窗口打开-->
+    <a href="04_img.html">图片文件</a>
+    <a href="www.baidu.com">老百度</a>
+    <a href="https://www.baidu.com" target="_blank">百度</a>
+    <a href="https://www.taobao.com" target="_blank">淘宝</a>
+    <!--图片超链接-->
+    <a href="04_img.html">
+        <img src="03.jpg">
+
+    </a>
+    <!--href 的特殊取值-->
+    <!--空表示刷新-->
+    <a href="">刷新</a>
+    <!--#表示锚点，链接至本页，不会造成刷新，修改了URL-->
+    <a href="">href="#"</a>
+    <!--javascript:void(0)阻止超链接默认的点击跳转功能，允许自定义点击事件-->
+    <a href="javascript:void(0)">javascript:void(0)</a>
+    <!--锚点链接参见01_page.html-->
+</body>
+</html>

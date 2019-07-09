@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<button id="bt">删除用户</button>
+	<script>
+	bt.onclick = function(){
+		//弹出确认框
+		var choice = confirm('此操作不可恢复！您确认吗？');
+
+		if(choice){	//true，用户点击“确定”
+			console.log('开始删除...');
+		}else {  //false，用户点击“取消”
+			console.log('删除操作已经取消');
+		}
+	}
+	</script>
+</body>
+</html>
+
+
+

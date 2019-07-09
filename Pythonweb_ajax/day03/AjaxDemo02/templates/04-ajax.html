@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax04</title>
+    <script src="/static/jquery-1.11.3.js"></script>
+    <script>
+        $(function () {
+           $('#btnAjax').click(function () {
+              $.ajax({url:'/ajax/04-server/',
+                  type:'get',
+                  dataType:'json',
+                  async:true,
+                  success:function (data) {
+                      html = ''
+                      $(data).each(function (i,obj) {
+                          html += "课程:"+obj.cname+" 讲师:"+
+                              obj.teacher+"<br>"
+                      });
+                      $("#show").html(html);
+                  },
+                  error:function () {
+                      alert("操作有误，请联系老杜！");
+                  }
+              });
+           });
+        });
+    </script>
+</head>
+<body>
+    <button id="btnAjax">04-ajax</button>
+    <div id="show"></div>
+</body>
+</html>

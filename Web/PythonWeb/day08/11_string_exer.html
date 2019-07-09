@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StringExer</title>
+</head>
+<body>
+    <input id="inputCode">
+    <button id='btCode'>弹出邮箱名的用户名和域名</button>
+    <p id="pResult">显示结果</p>
+    <script>
+        btCode.onclick=function(){
+            var s=inputCode.value;
+            var tmd=s.indexOf('@');
+            var uname=s.substring(0,tmd);
+            var yu=s.substring(tmd+1);
+            pResult.innerHTML='用户名:'+uname+'<br>域名:'+yu;
+            
+            
+        }
+        
+    </script>
+</body>
+</html>

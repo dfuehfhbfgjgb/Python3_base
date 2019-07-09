@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		//计算累加和：只负责计算
+		function recursiveAdd(start, end){
+			var sum = 0;  //累加和
+			for(var i=start; i<end; i++){
+				sum = sum + i;
+			}
+			return sum;   //只返回不输出
+		}
+		/*测试累加函数
+		*var s = recursiveAdd(1, 5);  //1+2+3+4
+		*console.log(s);
+		*/
+
+		//执行累加和：输入，调用计算，输出
+		function doRecursiveAdd(){
+			//输入
+			var start = prompt('请输入累加的开始：');
+			start = Number(start);
+			var end = Number(prompt('请输入累加的结束'));
+			//计算
+			var result = recursiveAdd(start, end);
+			//输出
+			alert('累加和为：'+result);
+		}
+	</script>
+</head>
+<body>
+	<button onclick="doRecursiveAdd();">计算累加和</button>
+</body>
+</html>

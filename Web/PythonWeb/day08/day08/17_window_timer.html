@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<span id="spanHour">00</span>
+	:
+	<span id="spanMinute">00</span>
+	:
+	<span id="spanSecond">00</span>
+	<hr>
+	<button id="btStop">时间停止</button>
+<script>
+
+//启动/创建一个周期性定时器
+var timer = setInterval(function(){
+	//JS中获得当前系统时间 —— ES原生对象Date
+	var now = new Date();
+	//获取系统时间对象中的小时部分
+	var h = now.getHours();
+	//获取系统时间对象中的分钟部分
+	var m = now.getMinutes();
+	//获取系统时间对象中的秒钟部分
+	var s = now.getSeconds();
+	spanHour.innerHTML = h;
+	spanMinute.innerHTML = m;
+	spanSecond.innerHTML = s;
+}, 1000)
+
+btStop.onclick = function(){
+	//取消周期性定时器
+	clearInterval(timer)
+}
+</script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	#box{
+		width:500px;
+		background:orange;
+	}
+	#d1,#d2{
+		width:200px;
+		height:200px;
+		background:red;
+	}
+	#d1{
+		float:right;
+	}
+	#d2{
+		background:green;
+		/* clear:right; */
+		float:right;
+	}
+	.clear{
+		clear:both;
+	}
+	#type{
+		width:1000px;
+		margin:30px auto;
+		border:1px solid blue;
+		/* height:320px; */
+		overflow:hidden;
+	}
+	.item1{
+		width:680px;
+		height:320px;
+		background:pink;
+		float:left;
+	}
+	.item2,.item3{
+		width:300px;
+		height:150px;
+		background:pink;
+		float:right;
+	}
+	.item2{
+		margin-bottom:20px;
+	}
+
+  </style>
+ </head>
+ <body>
+	<div id="box">
+		<div id="d1"></div>
+		<div id="d2"></div>
+		<div class="clear"></div>
+	</div>
+	<div id="type">
+		<div class="item1"></div>
+		<div class="item2"></div>
+		<div class="item3"></div>
+	</div>
+ </body>
+</html>

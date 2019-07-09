@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job</title>
+    <script>
+        function isLeep(year){
+            return year%4==0 && year%100!=0 || year%400==0;
+        }
+        function getDay(year,month,day){
+            sum=0;
+            if (year >= 1900 && year < 1990){
+
+                for (var start=1900;start<=year-1;start++){
+                    if (isLeep(start)){
+                        sum+=366;
+                    }else{
+                        sum+=365;
+                    }
+                }
+            }else if(year >= 1990){
+
+                for (var start=1990;start<=year-1;start++){
+                    if (isLeep(start)){
+                        sum+=366;
+                    }else{
+                        sum+=365;
+                    }
+                }
+            }else{
+
+                return("暂不支持1990年之前的时间段查询")
+
+            }
+            for (var i=1;i<=month-1;i++){
+                switch(i){
+                    case 1:
+                    case 3:
+                    case 5:
+                    case 7:
+                    case 8:
+                    case 10:
+                        sum+=31;
+                        break;
+                    case 2:
+                        if (isLeep(year)){
+                            sum+=29;
+
+                        }else{
+                            sum+=28;
+                        }
+                        break;
+                    case 4:
+                    case 6:
+                    case 9:
+                    case 11:
+                        sum+=30;
+                        break;
+                    default:
+                        return("输入不合法");
+
+                }
+            }
+            sum+=day;
+            var res=sum%7;
+            switch (res){
+                case 0:
+                    return("周日");
+
+                case 1:
+                    return("周一");
+
+                case 2:
+                    return("周二");
+
+                case 3:
+                    return("周三");
+
+                case 4:
+                    return("周四");
+
+                case 5:
+                    return("周五");
+
+                case 6:
+                   return("周六");
+
+            }
+        }
+        function doGetDay(){
+            //输入
+            var year = Number(prompt("输入年:"));
+            var month = Number(prompt("输入月:"));
+            var day = Number(prompt("输入日:"));
+
+            //计算
+            var result=getDay(year,month,day);
+            //弹出结果
+            alert(result)
+        }
+    </script>
+</head>
+<body>
+    <button onclick="doGetDay()">计算星期几</button>
+</body>
+</html>

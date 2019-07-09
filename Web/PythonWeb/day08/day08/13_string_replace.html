@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script>
+	var s = '共产党诞生于上个世纪，共产党引导中国走向解放，共产党是我们的领路人';
+	
+	//替换字符串中的已有内容
+	//var str = s.replace('共产党', '***');
+	//console.log(s);
+	//console.log(str); //只有第一个被替换了
+
+	//替换字符串中的已有内容——使用正则表达式
+
+	var regexp = /共产党/g;  //g表示全局匹配，否则只能匹配一个，后续的会被忽略
+	var str = s.replace(regexp, '***');
+	console.log(s);
+	console.log(str);
+	</script>
+</body>
+</html>
+
+
+

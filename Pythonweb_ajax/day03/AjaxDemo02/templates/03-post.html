@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Post03</title>
+    <script src="/static/jquery-1.11.3.js"></script>
+    <script>
+        $(function () {
+           $('#btnPost').click(function () {
+               var msg = {
+                   uname:$("#uname").val(),
+                   uage:$("#uage").val(),
+                   ugender:$("#select_sex").val(),
+                   csrfmiddlewaretoken:$
+                    ("[name='csrfmiddlewaretoken']").val()
+               };
+               $.post('/ajax/03-server/',msg,function (data) {
+                   $("#show").html(data);
+               });
+           });
+        });
+    </script>
+</head>
+<body>
+    {% csrf_token %}
+    <p>
+        姓名<input type="text" id="uname">
+    </p>
+    <p>
+        年龄<input type="text" id="uage">
+    </p>
+    性别
+    <select name="ugender" id="select_sex">
+        <option value="male">男</option>
+        <option value="female">女</option>
+    </select>
+    <p>
+        <button id="btnPost">提交</button>
+    </p>
+    <div id="show"></div>
+</body>
+</html>

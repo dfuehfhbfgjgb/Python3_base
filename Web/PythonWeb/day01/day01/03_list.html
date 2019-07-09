@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+	<!--1.有序列表，默认以阿拉伯数字标识列表项-->
+	<!--type属性用于设置列表的项目符号，有序列表默认使用数字，可以修改为'a','A','i','I'-->
+	<ol type="a">
+		<li>list item1</li>
+		<li>list item2</li>
+	</ol>
+	<!--2.无序列表(unordered list)，默认以实心圆点标识列表项，type可取circle(空心圆)，square(实心方块)，none(取消项目符号)-->
+	<ul>
+		<li>列表项1</li>
+	</ul>
+	<ul type="circle">
+		<li>列表项2</li>
+	</ul>
+	<!--
+	使用无序列表展示四大名著；使用有序列表展示某一名著下四大人物
+	-->
+	<ul>
+		<li>西游记</li>
+		<ol>
+			<li>大师兄</li>
+			<li>二师兄</li>
+			<li>沙师弟</li>
+			<li>如来</li>
+		</ol>
+		<li>西游记</li>
+		<li>西游记</li>
+		<li>西游记</li>
+	</ul>
+	<!--网页下拉菜单使用列表嵌套实现，只能使用父子关系嵌套-->
+	<ul>
+		<li>
+			西游记
+			<ol>
+				<li>大师兄</li>
+				<li>二师兄</li>
+				<li>沙师弟</li>
+				<li>如来</li>
+			</ol>
+		</li>
+		
+		<li>西游记</li>
+		<li>西游记</li>
+		<li>西游记</li>
+	</ul>
+	
+
+
+
+ </body>
+</html>

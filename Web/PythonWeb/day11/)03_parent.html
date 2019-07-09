@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery_style</title>
+    <script src="../jquery-1.11.3.js"></script>
+    <!-- <script src="index.js"></script> -->
+    <style>
+       
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <div id="box">
+        <p>小杜打野</p>
+        <h1>老杜进局子</h1>
+        <h1>老杜吃鸡</h1>
+        <div class="left">
+            <h1>标题</h1>
+        </div>
+        
+        <h1>隔壁老杜</h1>
+        <h1>老杜超神</h1>
+        <p>小杜老师</p>
+    </div>
+    <script>
+        //console.log('下一个兄弟元素：',$(".left").next());
+        //console.log('上一个一个兄弟元素：',$(".left").prev());
+        $(".left").next().css("color","pink");
+        $(".left").prev().css("color","yellow");
+        //$(".left").next("p").css("color","pink");
+        //$(".left").prev("p").css("color","yellow");
+        console.log('siblings:',$(".left").siblings());
+        console.log('siblings(""):',$(".left").siblings('p'));
+        console.log("parent:",$("h1").parent());
+        console.log("parent:",$("h1").parents());
+        console.log("指定查找：",$("h1").parents("#box"));
+        console.log("box子元素：",$("#box").children());
+        console.log("children(''):",$("#box").children('h1'));
+        console.log($("#box").find("h1"));
+        //find（参数）参数不能省略
+        console.log($("#box").find());
+
+    </script>      
+</body>
+</html>

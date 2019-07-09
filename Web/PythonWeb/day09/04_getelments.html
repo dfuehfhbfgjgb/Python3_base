@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Window</title>
+    <!-- 导入js文件 -->
+    <script src='index.js'></script> 
+    <script>
+
+        function show(){
+            //vlementsByTagName('input')[0];
+            //return input;
+            var input = $("input")
+            console.log(input.value);
+            showDc.innerHTML='<h1>'+input.value+'</h1>';
+
+        }
+    </script>
+</head>
+<body>
+
+    <h1>标题1</h1>
+    <h1 class='c1' id='d1'>标题2</h1>
+    <h1 name='info'>标题3</h1>
+    <h1 class='c1'>标题4</h1>
+    <h1 name='info'>标题5</h1>
+    <p class='c1'>参考</p>
+    <input type="text" name='uname'>
+    <button onclick="show()">显示</button>
+    <div id='showDc'></div>   
+ 
+    <!-- <span id='d1'>段落</span> -->
+    <script>
+        // 1.根据标签名获取元素节点
+        var elems = 
+        document.getElementsByTagName("h1");
+        console.log(elems)
+        // 元素节点对象的属性：innerHTML
+        elems[0].innerHTML = '哈哈';
+        //elems[1].innerHTML = '嘿嘿';
+
+        // 2.根据类名获取元素节点
+        var elems2 = 
+        document.getElementsByClassName('c1');
+        console.log(elems2);
+        //从列表中获取元素
+        elems2[2].innerHTML='hello world';
+        // 3.根据name获取元素列表
+        var elems3 = 
+        document.getElementsByName('info');
+        console.log(elems3);
+        elems3[1].innerHTML='老杜爱Python'
+        // 4.根据id获取元素
+        var elem = 
+        document.getElementById('d1');
+        console.log(elem);
+        elem.innerHTML='you are SB'
+        elems3[0].innerHTML=
+        "<a href='http://baidu.com'>百度</a>";//可以识别标签<a></a>
+        elems3[1].innerText
+        ="<a href='http://baidu.com'>百度</a>";//不可以识别标签<a></a
+           // 原样输出
+    </script>
+</body>
+</html>

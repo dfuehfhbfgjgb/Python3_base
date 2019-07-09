@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student</title>
+</head>
+<body>
+    <h2><span id="sname"></span>的成绩单</h2>
+    <h3>语文：<span id="chi"></span></h3>
+    <h3>数学：<span id="mat"></span></h3>
+    <h3>英语：<span id="eng"></span></h3>
+    <h3>总分：<span id="gtotal"></span></h3>
+    <h3>平均分：<span id="gaverage"></span></h3>
+
+    <script>
+        var student={
+            stuName:"特朗普",
+            chinese:3,
+            math:9,
+            english:59,
+            getTotal:function(){
+                return this.chinese+this.math+this.english;
+            },
+            getAverage:function(){
+                var sum=this.getTotal();
+                return sum/3;
+            }
+        }
+
+        //console.log(sname.innerHTML);//获取元素的内容
+        sname.innerHTML=student.stuName;
+
+        //console.log(chi.innerHTML);
+        chi.innerHTML=student.chinese;
+
+        //console.log(mat.innerHTML);
+        mat.innerHTML=student.math;
+
+        //console.log(eng.innerHTML);
+        eng.innerHTML=student.english;
+
+        //console.log(student.stuName);
+        //console.log(gtotal.innerHTML);
+        gtotal.innerHTML=student.getTotal();
+
+        console.log(gaverage.innerHTML);
+        gaverage.innerHTML=student.getAverage();
+
+    </script>
+</body>
+</html>

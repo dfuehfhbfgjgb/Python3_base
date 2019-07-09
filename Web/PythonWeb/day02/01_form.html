@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus">
+    <meta name="Xutao" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>Document</title>
+</head>
+<body>
+    <!--form元素负责将表单数据按照指定的提交地址（action）和提交方式（type）发送给服务器。
+    1.提交方式默认为get，将表单中数据以参数的形式拼接在url后面（以键值对方式提交传输）
+    （？&key1=value1&key2=value2
+    2.post方式提交数据会将数据封装在请求体中传输，安全性很高
+    如果涉及二进制数据提交只能使用post提交，并且设置数据的编码类型为multipart/form-data-->
+    <form action="/login" method="get" enctype="">
+        <!--表单控件用于采集用户信息，只能放在form中使用，数据才会被提交-->
+        <!--
+        type:必填，指定控件类型
+        name：必填，指定控件名称（key）
+        placeholder：设置提示文本
+        maxlength：设置最大输入字符数
+        readonly：不需要取值，设置输入框只读，设置后输入框只能看不能修改
+        value：设置控件的值（value）
+        checked：设置按钮默认选中-->
+        <p>
+            用户姓名：<input type="text" name="username"
+                        placeholder="请输入用户名" maxlength="10"
+         value="xutao"></p>
+        <p>
+            用户密码：<input type="password" name="upwd"
+                        placeholder="请输入密码" maxlength="10"></p>
+        <p>
+            性别：
+            <!--单选按钮
+            一组按钮的控件名称必须保持一致
+            按钮中必须设置value-->
+            <input id="boy" type="radio" name="gender" value="boy" checked>
+            <label for="boy">Boy</label>
+            <input id="girl" type="radio" name="gender" value="girl">
+            <label for="girl">Girl</label>
+
+        </p>
+        <!--label for id实现文本与控件的绑定-->
+        <p>
+            <!--
+            复选框，多选按钮
+            -->
+            兴趣爱好：
+            <input id="dance" type="checkbox" name="hobby" value="dance">
+            <label for="dance">蹦迪</label>
+            <input id="rap" type="checkbox" name="hobby" value="rap">
+            <label for="rap">rap</label>
+            <input id="spa" type="checkbox" name="hobby" value="spa" checked>
+            <label for="spa">保健</label>
+        </p>
+        <!--文件选择框：二进制数据必须使用post方式并且修改编码类型-->
+        <p>
+            用户头像：
+            <input type="file" name="uimg">
+        </p>
+        <!--隐藏域：发送当前页面的附加信息，对用户而言不可见，
+        服务器必须的数据可以使用隐藏域提交-->
+        <p>
+            <input type="hidden" name="uid" value="001">
+        </p>
+        <!--下拉菜单-->
+        <p>
+            所在地址：
+            <select name="city">
+                <option value="bj">北京</option>
+                <option value="sh">上海</option>
+                <option value="gz">广州</option>
+                <option value="sz">深圳</option>
+            </select>
+        </p>
+
+        <p>
+            <!--多行文本域-->
+            个人简介：
+            <textarea name="uinfo" cols="30" rows="10"></textarea>
+        </p>
+        <!--功能按钮：表单的提交、重置、普通按钮
+        可以使用value属性设置按钮的显示文本-->
+        <!--提交按钮，点击时将数据发送给服务器-->
+        <!--submit提交按钮-->
+        <input type="submit" value="注册">
+        <input type="reset" value="清空">
+        <input type="button" value="点击">
+        <button>form内</button> <!--写在form中等价于提交（submit）-->
+    </form>
+    <button>form外</button> <!--写在form外就是普通按钮，需要自定义点击处理-->
+
+</body>
+</html>

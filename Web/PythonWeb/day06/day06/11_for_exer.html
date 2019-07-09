@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	//i既是操作数，也代表行数
+	for(var i = 1;i <= 9;i++){
+		var show = "";
+		for(var j = 1;j <= i;j++){
+			//拼接当前行中所有的算式
+			show += i + "*" + j + "=" + i*j + "\t";
+		}
+		//按行输出
+		console.log(show);
+	}
+
+	for(var i = 1; i < 6;i++){//行数
+		var show = "";
+		//循环次数即为星星个数
+		for(j = 1; j <= i; j++){
+			show += "*";
+		}
+		//按行输出
+		console.log(show);
+	}
+
+  
+  
+  
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

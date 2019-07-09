@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表</title>
+</head>
+<body bgcolor="yellow">
+    <!--1.有序列表(ordered list,默认以阿拉伯数字标识列表项-->
+    <!--type属性用于设置列表的项目符号,有序列表默认使用数字,
+    可以修改为'a','A','i','I'-->
+    <ol type="I">
+        <li>list item1</li>
+        <li>list item2</li>
+    </ol>
+
+    <!--2.无序列表(unordered list,默认以实心圆点标识列表项
+    type可取circle(空心圆),square(实心方块),none(取消项目符号-->
+    <ul type="square">
+        <li>列表项1</li>
+        <ul type="circle">
+            <li>hello1</li>
+            <li>hello2</li>
+            <li>hello3</li>
+        </ul>
+        <li>列表项2</li>
+        <li>列表项3</li>
+    </ul>
+
+    <!--使用无序列表展示四大名著;使用有序列表展示某一名著下四大人物
+    网页下拉菜单使用列表嵌套实现,只能使用父子关系嵌套-->
+    <ul>
+        <li>
+            西游记
+            <ol>
+                <li>孙悟空</li>
+                <li>八戒</li>
+                <li>沙僧</li>
+                <li>唐僧</li>
+            </ol>
+        </li>
+
+        <li>
+            水浒传
+            <ol>
+                <li>宋江</li>
+                <li>吴用</li>
+                <li>潘金莲</li>
+                <li>武松</li>
+            </ol>
+        </li>
+
+        <li>
+            三国演义
+            <ol>
+                <li>吕布</li>
+                <li>黄忠</li>
+                <li>赵云</li>
+                <li>关羽</li>
+            </ol>
+        </li>
+
+        <li>
+            红楼梦
+            <ol>
+                <li>贾宝玉</li>
+                <li>林黛玉</li>
+                <li>薛宝钗</li>
+                <li>贾元春</li>
+            </ol>
+        </li>
+
+    </ul>
+
+</body>
+</html>

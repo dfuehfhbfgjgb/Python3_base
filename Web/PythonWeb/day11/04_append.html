@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery_style</title>
+    <script src="../jquery-1.11.3.js"></script>
+    <!-- <script src="index.js"></script> -->
+    <style>
+       
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <script>
+        var elem1 = 
+        $("<h1 id='d1' style='color:green'>老杜</h1>");
+        var elem2 = 
+        $("<h1></h1>");
+        elem2.html("小杜").attr("id","d2").css("color","yellow");
+        $("body").append(elem1).prepend(elem2);
+        var elem3 = $("<h1>杜怡围</h1>");
+        var elem4 = $("<h1>围哥</h1>");
+        elem2.after(elem3);
+        elem1.before(elem4);
+        //移除元素
+        elem2.remove();
+    </script>
+</body>
+</html>

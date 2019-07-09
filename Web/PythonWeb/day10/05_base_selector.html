@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基础选择器</title>
+    <script src="../jquery-1.11.3.js"></script>
+    <script>
+        window.onload = function (){
+            console.log($("h1"));
+            $("#d1").html("<a href>超链接</a>");
+            $(".c1").text("<a href>超链接</a>");//不能识别标签
+            //操作行内样式
+            $("#d1,.c1,a").css("color","pink")
+            //后代选择器
+            console.log($("div h3"));
+            //兄弟选择器
+            //相邻兄弟
+            console.log($("h3+p"));
+            //通用兄弟
+            console.log($("h3~p"));
+            
+        };
+    </script>
+</head>
+<body>
+    <h1 id="d1">标题1</h1>
+    <h2 class="c1">标题2</h1>
+    <!-- <h1 >标题</h1> -->
+    <div>
+        <p>参考1</p>
+        <h3>标题3</h3>
+        <span></span>
+        <p>参考2</p>
+        <p>参考3</p>
+
+    </div>
+</body>
+</html>

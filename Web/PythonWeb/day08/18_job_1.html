@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Window_Timer</title>
+</head>
+<body>
+    <button id="btStart">开始</button>
+    <span id="spanHour" length="2">00</span>:
+    <span id="spanMinute" length="2">00</span>:
+    <span id="spanSecond" length="2">00</span>.
+    <span id="spanMilli" length="3">000</span>    
+    <button id="btStop">停止</button>
+    <button id="btClear">清除</button>
+    <script>
+        //做一个页面时钟
+        function fn(num,length){
+            return (Array(length).join('0')+num).slice(-length);
+        }
+
+        btStart.onclick=function(){
+            var start=new Date();
+            var timer=setInterval(function(){
+            var now=new Date();//获取系统当前时间
+            if (now.getHours()<start.getHours()){
+                var h=now.getHours()+24-getHours()
+            }else{
+                var h=now.getHours()-start.getHours();
+            }
+            if (now.getMinutes()<start.getMinutes()){
+                var m=now.getMinutes()+60-start.getMinutes()
+            }else{
+                var m=now.getMinutes()-start.getMinutes();
+            }
+            if (now.getSeconds()<start.getSeconds()){
+                var s=now.getSeconds()+60-start.getSeconds()
+            }else{
+                var s=now.getSeconds()-start.getSeconds();
+            }
+            if(now.getMilliseconds()<start.getMilliseconds()){
+                var ms=now.getMilliseconds()+1000-start.getMilliseconds()
+            }else{
+                var ms=now.getMilliseconds()-start.getMilliseconds();
+            }
+            
+            spanHour.innerHTML=fn(h,2);
+            spanMinute.innerHTML=fn(m,2);
+            spanSecond.innerHTML=fn(s,2);
+            spanMilli.innerHTML=fn(ms,3);
+            //console.log(now);
+            },1);
+            //取消周期性定时器
+            btStop.onclick=function(){
+                clearInterval(timer);
+            }
+        }                  
+        
+        
+        
+
+
+
+    </script>
+</body>
+</html>

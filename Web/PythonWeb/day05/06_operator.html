@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operator</title>
+    <script>
+        var a = 10;
+        a ++;
+        ++ a;
+        console.log(a);
+        b = "10";
+
+        b += 1;
+        console.log(b);//"101"
+        //包含自动类型转换，转成number进行值的+1或-1.
+        b ++;
+        console.log(b);//102
+        var c = 10;
+        console.log(c);
+        var r1 = c ++;
+        console.log(c,r1);
+        var r2 = ++c;
+        console.log(c,r2);
+
+        var n = 10;
+        var r3 = n --;//n=9,r3=10
+        console.log(n,r3);
+        var r4 = -- n;//n=8,r4=8
+        console.log(n,r4);
+
+        var m=5;
+        var r5=m ++ + ++ m + m ++ + ++ m + m
+        console.log(m,r5);
+
+        var res1 = "a" > "b";
+        console.log(res1);
+
+        var res2 = "1" > "10";
+        console.log(res2);
+
+        var res3 = "2" > "10";
+        console.log(res3);
+
+        var res4 = "2" < 10;
+        console.log(res4);
+
+        //==等于（值相等即相等）
+        var r1 = "10" == 10;
+        console.log(r1);
+        //===全等（值和数据类型必须都相等）
+        var r2 = "10" === 10;
+        console.log(r2);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

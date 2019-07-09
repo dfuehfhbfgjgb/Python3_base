@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<input id="inputData">
+	<button id="bt">
+		验证输入是否有且只有一个@符号
+	</button>
+	<script>
+	bt.onclick = function(){
+		//获取用户的输入
+		var input = inputData.value;
+		//开始判定是否“有且只有一个@”
+		var i1 = input.indexOf('@');//@第一次出现的下标
+		var i2 = input.lastIndexOf('@');//@最后一次出现的下标
+		if(i1==i2 && i1!=-1){
+			alert('有且只有一个@');
+		}else {
+			alert('不符合要求的输入');
+		}
+
+	}
+	</script>
+</body>
+</html>
+
+
+

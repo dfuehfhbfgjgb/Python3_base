@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exer</title>
+    <script>
+        var year = prompt("请输入年");
+        var month = prompt("请输入月");
+        var day = prompt("请输入日");
+        console.log(year,"年",month,"月",day,"日.")
+        month = Number(month);
+        day = Number(day);
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 ==0){
+            switch (month) {
+                case 1:
+                    var total_day=day
+                    break;
+                    //console.log("")
+                case 2:
+                    var total_day=31+day;
+                    break;
+                case 3:
+                    var total_day=31+29+day;
+                    break;
+                case 4:
+                    var total_day=31+29+31+day;
+                    break;
+                case 5:
+                    var total_day=31+29+31+30+day;
+                    break;
+                case 6:
+                    var total_day=31+29+31+30+31+day;
+                    break;
+                case 7:
+                    var total_day=31+29+31+30+31+30+day;
+                    break;
+                case 8:
+                    var total_day=31+29+31+30+31+30+31+day;
+                    break;
+                case 9:
+                    var total_day=31+29+31+30+31+30+31+31+day;
+                    break;
+                case 10:
+                    var total_day=31+29+31+30+31+30+31+31+30+day;
+                    break;
+                case 11:
+                    var total_day=31+29+31+30+31+30+31+31+30+31+day;
+                    break;
+                case 12:
+                    var total_day=31+29+31+30+31+30+31+31+30+31+30+day;
+                    break;
+                default:
+                    console.log("输入不合法");
+                    break;
+            }
+        }else{
+            switch (month) {
+                case 1:
+                    var total_day=day
+                    break;
+                    //console.log("")
+                case 2:
+                    var total_day=31+day;
+                    break;
+                case 3:
+                    var total_day=31+28+day;
+                    break;
+                case 4:
+                    var total_day=31+28+31+day;
+                    break;
+                case 5:
+                    var total_day=31+28+31+30+day;
+                    break;
+                case 6:
+                    var total_day=31+28+31+30+31+day;
+                    break;
+                case 7:
+                    var total_day=31+28+31+30+31+30+day;
+                    break;
+                case 8:
+                    var total_day=31+28+31+30+31+30+31+day;
+                    break;
+                case 9:
+                    var total_day=31+28+31+30+31+30+31+31+day;
+                    break;
+                case 10:
+                    var total_day=31+28+31+30+31+30+31+31+30+day;
+                    break;
+                case 11:
+                    var total_day=31+28+31+30+31+30+31+31+30+31+day;
+                    break;
+                case 12:
+                    var total_day=31+28+31+30+31+30+31+31+30+31+30+day;
+                    break;
+                default:
+                    console.log("输入不合法");
+                    break;
+            }
+        }
+        console.log("该日期是当年的第",total_day,"天.")
+    </script>
+</head>
+<body>
+
+</body>
+</html>

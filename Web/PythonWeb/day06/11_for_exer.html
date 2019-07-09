@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ForExer</title>
+    <script>
+        for (var i=1;i<=9;i++){
+            var tmp=''
+            for (var n=1;n<=i;n++){
+                var sub=i*n;
+                tmp+=i+"*"+n+"="+sub+"\t"; //制表符保证向左对齐
+            }
+            console.log(tmp);
+
+        }
+        for (var i=1;i<=9;i++){
+            tmp=''
+            for (var j=1;j<=i;j++){
+                tmp+="*";
+            }
+            console.log(tmp);
+        }
+        //打印金字塔
+        for (var i=1;i<=9;i++){
+            tmp=''
+            for (var j=1;j<=9+i-1;j++){
+                //n=9-i
+                if (j<=9-i){
+                    tmp+=" ";
+                }else if(j<=9+i-1){
+                    tmp+="*";
+                }
+            }
+            console.log(tmp);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job</title>
+    <style>
+        body{
+            margin：0；
+
+        }
+        td:hover{
+            color:blue;
+        }
+        td{
+            padding:0 5px;
+            margin:0;
+
+
+        }
+       table{
+            margin:0px auto;
+        }
+        a{
+            text-decoration:none;
+            color:#fff;
+            margin-right:10px;
+            width:92px;
+            display:inline-block;
+            /*background:green;*/
+            height:50px;
+            font-size:20px;
+            /*水平居中*/
+            text-align:center;
+            /*一行文本在当前行中永远都是垂直居中的，
+            可以手动设置行高跟元素高度保持一致，
+            实现一行文本在元素中的垂直居中*/
+            line-height:50px;
+
+        }
+        a:hover{
+            background:green;
+        }
+        #nva{
+            width:500px;
+            margin:0 auto;
+            background:orange;
+            /*父元素字体大小为0，解决水平方向上由于代码换行导致的子元素之间出现的空隙
+            子元素需要手动调整可见*/
+            font-size:0;
+        }
+        .no-margin{
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+    <!--<table>-->
+        <!--<tr>-->
+            <!--<td><u>新闻</u></td>-->
+            <!--<td>hao123</td>-->
+            <!--<td>地图</td>-->
+            <!--<td>视频</td>-->
+            <!--<td>贴吧</td>-->
+        <!--</tr>-->
+    <!--</table>-->
+    <div id="nva">
+        <a href="">淘宝</a>
+        <a href="">淘宝</a>
+        <a href="">淘宝</a>
+        <a href="">淘宝</a>
+        <a class="no-margin" href="">淘宝</a>
+    </div>
+
+    <!--<span>-->
+        <!--<a href="http://www.baidu.com">新闻</a>-->
+        <!--<a href="http://www.baidu.com">hao123</a>-->
+        <!--<a href="http://www.baidu.com">地图</a>-->
+        <!--<a href="http://www.baidu.com">视频</a>-->
+        <!--<a href="http://www.baidu.com">贴吧</a>-->
+    <!--</span>-->
+
+</body>
+</html>

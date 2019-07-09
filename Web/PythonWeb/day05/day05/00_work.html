@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	body,ul{
+		margin:0;
+		padding:0;
+		list-style:none;
+	}
+	#banner{
+		width:1000px;
+		height:400px;
+		margin:0 auto;
+		position:relative;
+	}
+	#banner img{
+		width:1000px;
+		height:400px;
+	}
+	#banner ul{
+		width:90px;
+		position:absolute;
+		bottom:20px;
+		/*根据参照物相应方向的值计算偏移距离*/
+		left:50%;
+		margin-left:-45px;
+		/* background:red; */
+	}
+	#banner li{
+		float:left;
+		width:10px;
+		height:10px;
+		border-radius:50%;
+		margin-right:10px;
+		background:#fff;
+	}
+	/*:last-child子元素过滤选择器，匹配最后一个子元素
+	:first-child匹配第一个子元素
+	:nth-child(n)匹配第n个子元素
+	*/
+	#banner ul li:last-child{
+		margin:0;
+	}
+	#banner ul li:first-child{
+		background:gray;
+	}
+	#banner a{
+		position:absolute;
+		top:50%;
+		margin-top:-35px;
+		width:35px;
+		height:70px;
+		background:rgba(0,0,0,.1) url("arrow-left.png") no-repeat center;
+		border-radius:5px;
+	}
+	#banner .left{
+		left:5px;
+	}
+	#banner .right{
+		right:5px;
+		background-image:url("arrow-right.png");
+	}
+	.soutu{
+		margin:20px auto;
+		border:1px solid red;
+		width:18px;
+		height:18px;
+		background:url("soutu.png");
+	}
+	.soutu:hover{
+		background-position:0px -20px;
+	}
+
+	
+  </style>
+ </head>
+ <body>
+	<div id="banner">
+		<img src="index_banner2.jpg">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>	
+		</ul>
+		<a href="javascript:void(0)" class="left"></a>
+		<a href="javascript:void(0)" class="right"></a>
+	</div>
+	<div class="soutu"></div>
+ </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UserTable</title>
+    <style>
+        #userTable{
+            border: 1px;
+            width:500px;
+            height: 200px;
+            /*margin-bottom: 1px solit black;*/
+            /*align-content: center;*/
+        }
+        td{
+            text-align:center;
+            /*text-decoration:underline;*/
+        }
+        tr{
+            /*margin-bottom: 1px solit black;*/
+            
+        }
+    </style>
+</head>
+<body>
+    <table id="userTable">
+
+    </table>
+    <script>
+        var userList=[
+            ['uid','uname','sex','birthday','isOnline'],
+            [101,'老杜','男','1999-01-01',true],
+            [102,'老徐','男','1991-10-11',true],
+            [103,'老龙','男','1995-08-19',false],
+            [104,'老左','女','2019-6-5',false]
+        ]
+        function useT(arr){
+            var html=''
+            for (i=0;i<userList.length;i++){
+                var tmd='';
+                for (j=0;j<userList[i].length;j++){
+                    tmd+='<td>'+userList[i][j]+'</td>';
+                }
+                html+='<tr>'+tmd+'</tr>';
+
+            }
+            return html;
+        }
+        
+        userTable.innerHTML=useT(userList);
+    </script>
+
+</body>
+</html>

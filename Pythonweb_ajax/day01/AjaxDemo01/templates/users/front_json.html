@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no,
+          initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FrontJson</title>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <script>
+        $(function () {
+            $('#btnJSON').click(function () {
+                var xhr = createXhr();
+                var params = {
+                    uname:'laodu',
+                    uage:18,
+                    ugender:'女'
+                }
+                //将JS对象转换成JSON格式的字符串
+                params = JSON.stringify(params);
+                // console.log(params);
+                xhr.open('get','/users/front_server?params='+params,
+                    true);
+                xhr.onreadystatechange = function () {
+                    if(xhr.readyState == 4 && xhr.status == 200){
+                        alert(xhr.responseText);
+                    }
+                }
+                xhr.send(null);
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btnJSON">发送数据</button>
+</body>
+</html>

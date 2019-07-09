@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sort</title>
+</head>
+<body>
+    <script>
+        //简单数组排序
+        var scores=[54,8,5,89,12,66,22,77];
+        var list=[
+            {uid:13,price:50,count:10},
+            {uid:11,price:40,count:20},
+            {uid:14,price:60,count:5},
+            {uid:12,price:30,count:6},
+        ]
+        console.log(list);
+        console.log(scores);
+        //sort()排序，比较每个元素的Unicode码
+        scores.sort(function(e1,e2){
+            //返回负数，认为e1<e2,e1排在e2前
+            //返回正数，认为e1>e2,e2排在e1前
+            //返回0，认为e1==e2，e1，e2
+            /*if (e1<e2){
+                return 1;
+            }else if(e1>e2){
+                return -1;
+            }else{
+                return 0;
+            }*/
+            return e1-e2; //e1-e2正序 e2-e1倒序
+        })                
+        console.log(scores);
+        
+        list.sort(function(e1,e2){
+            return e1.price-e2.price;
+        })
+        console.log(list);
+    </script>
+</body>
+</html>

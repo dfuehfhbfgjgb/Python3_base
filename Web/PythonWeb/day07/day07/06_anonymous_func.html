@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script>
+	var say = function(){
+		console.log('hello');
+	}
+
+	//say();  //手工主动调用
+
+	//JS中的定时器函数：每隔指定的事件，就由JS解释器调用指定函数: 参数1是要指定的任务；参数2是时间间隔(单位是ms)
+	setInterval( function(){
+		console.log('hello');
+	}, 1000 );
+	</script>
+</head>
+<body>
+	<!--在某个事件发生时，由JS解释器调用-->	
+	<button onclick="say()">调用say()函数</button>
+</body>
+</html>

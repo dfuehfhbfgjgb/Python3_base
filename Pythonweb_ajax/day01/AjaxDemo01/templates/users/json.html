@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Json</title>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <script>
+        //模拟一个JSON格式的字符串
+        var jsonStr = '{"uname":"laodu","uage":18}';
+        //通过JSON.parse()将jsonStr转化为js对象
+        var obj = JSON.parse(jsonStr);
+        console.log(obj.uname);
+        console.log(obj.uage);
+        /**
+         * 通过JSON字符串表示一组对象（uname,uage)
+         * 通过JSON.parse()将jsonStr转化为js对象/数组
+         * 循环遍历数组，将每个人的信息输出在控制台
+         */
+        var jsonStrs = '[' +
+            '{"name":"laodu","uage":18},' +
+            '{"name":"laozuo","uage":8},' +
+            '{"name":"laoxu","uage":28}]';
+        var users = JSON.parse(jsonStrs);
+        // console.log(users)
+        for(var i=0;i<users.length;i++){
+            console.log("姓名："+users[i].name+" 年龄："+users[i].uage);
+        }
+
+        console.log("使用jq循环遍历");
+        $(users).each(function (i,obj) {
+            console.log("name:"+obj.name+" age:"+obj.uage)
+        })
+    </script>
+</body>
+</html>

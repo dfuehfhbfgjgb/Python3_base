@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <script src="../jquery-1.11.3.js"></script>
+    <script>
+        window.onload = function (){
+            //jquery获取元素
+            console.log("h1");
+            //操作元素内容,jquery对象会内部遍历所有元素，统一修改
+            $("h1").html("动态修改");
+            //获取原声JS对象
+            console.log($('h1')[0]);
+            $("h1")[0].innerHTML = "哈哈";
+            $("h1").get(1).innerHTML = "猥琐的老杜";
+            $("h1").get(1).style="color:green";
+            $("h1").get(2).innerHTML = "是不是？";
+            //原生对象转换jquery对象
+            var h1 = $("h1")[0];
+            console.log($(h1));
+            /*jquery提供eq（index）从元素列表中获取指定元素，
+            返回jquery对象*/
+            $("h1").eq(2).html("eq(index)返回jquery对象")
+        };
+    </script>
+</head>
+<body>
+    <h1>标题</h1>
+    <h1>标题</h1>
+    <h1>标题</h1>
+</body>
+</html>

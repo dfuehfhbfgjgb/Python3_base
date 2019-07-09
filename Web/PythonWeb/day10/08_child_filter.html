@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子元素过滤选择器</title>
+    <script src="../jquery-1.11.3.js"></script>
+    <script>
+        window.onload = function (){
+            $("li:first").css("color","red");
+            $("li:last").css("color","green");
+            $("li:first-child").css("background","orange");
+            $("li:last-child").css("background","cyan");
+            $("li:nth-child(3)").css("text-align","center");
+        };
+    </script>
+</head>
+<body>
+   <ul>
+        <li>列表项</li>
+        <li>列表项</li>
+        <li>列表项</li>
+        <li>列表项</li>
+        
+
+   </ul>
+   <ul>
+        <li>列表项</li>
+        <li>列表项</li>
+        <li>列表项</li>
+        <li>列表项</li>
+   </ul>
+</body>
+</html>

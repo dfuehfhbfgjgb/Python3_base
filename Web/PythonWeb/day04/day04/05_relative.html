@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	#box{
+		width:500px;
+		height:500px;
+		background:orange;
+		margin:50px auto;
+		position:relative;
+	}
+	#d1{
+		width:200px;
+		height:200px;
+		background:red;
+		position:absolute;
+		top:0;
+		left:0;
+		/*
+		position:relative;
+		top:100px;
+		left:100px;
+		*/
+	}
+	body{
+		position:relative;
+		/*处理子元素的margin-top作用于父元素上*/
+		border-top:1px solid blue;
+	}
+  
+  </style>
+ </head>
+ <body>
+	<div id="box">
+		<div id="d1"></div>
+	</div>
+ </body>
+</html>
